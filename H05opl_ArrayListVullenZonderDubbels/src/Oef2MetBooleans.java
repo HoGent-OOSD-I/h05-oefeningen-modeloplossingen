@@ -22,7 +22,7 @@ public class Oef2MetBooleans
 			bevatCijfer.add(false);
 		}
 
-        deler = 10000000;
+        int deler = 10000000;
 		do
 		{
 			eenheid = invoer / deler;
