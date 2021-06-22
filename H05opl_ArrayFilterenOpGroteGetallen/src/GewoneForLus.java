@@ -2,7 +2,7 @@
 import java.util.Scanner;
 
 
-public class Oef5GewoneFor
+public class GewoneForLus
 {
     public static void main(String args[])
     {

@@ -2,7 +2,7 @@
 import java.util.Scanner;
 
 
-public class Oef8bEnhancedFor
+public class EnhancedForLus
 {
     public static void main(String args[])
     {
