@@ -16,7 +16,7 @@ public class Euromillions
         String[] sterrenbeeld = {"Ram", "Leeuw", "Boogschutter", "Stier", "Maagd", "Steenbok", 
         						 "Tweelingen", "Weegschaal", "Waterman", "Kreeft", "Schorpioen", "Vissen"};
 
-        int willekeurige;
+        int willekeurig;
         int i;
         SecureRandom sr = new SecureRandom();
         for (i = 0; i < euromillions.length; i++) 
