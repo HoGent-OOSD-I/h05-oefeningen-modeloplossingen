@@ -12,6 +12,7 @@ public class BlackjackApp
 	public static void main(String[] args)
 	{
 		Scanner s = new Scanner(System.in);
+		//Dit is een test
 		DomeinController dc = new DomeinController();
 		
 		System.out.println("We spelen vandaag Blackjack!");
