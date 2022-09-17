@@ -1,0 +1,65 @@
+package domein;
+
+public class Spel
+{
+	private Dobbelsteen[] dobbelstenen;
+	private int score;
+	private int eersteWorp; // defaultwaarde 0
+
+	public Spel() 
+	{
+		score = -1; // dit is geen geldige score die als eindresultaat kan gegeven worden 
+		dobbelstenen = new Dobbelsteen[2];
+		for (int i = 1; i <= dobbelstenen.length; i++)
+			dobbelstenen[i-1] = new Dobbelsteen();
+	}
+
+	public void rolDobbelstenen() 
+	{ 
+		for (Dobbelsteen d : dobbelstenen) 
+			d.rol();
+
+		int aantalOgenHuidigeWorp = this.geefAantalOgenWorp(); 
+
+		// volgorde belangrijk: eerst score bepalen, dan eerste worp instellen!
+		bepaalScore(aantalOgenHuidigeWorp);
+		bepaalEersteWorp(aantalOgenHuidigeWorp);
+	}
+
+	private void bepaalEersteWorp(int aantalOgenWorp)
+	{ 
+		// als ik nog niet eerder geworpen had, staat eersteWorp nog op 0 en pas ik dit aan
+		if (eersteWorp == 0) 
+			eersteWorp = aantalOgenWorp; // eersteWorp wordt aangepast!
+	}
+
+	private void bepaalScore(int aantalOgenWorp) 
+	{ 
+		if (eersteWorp == 0 && (aantalOgenWorp == 7 || aantalOgenWorp == 11))
+			score = 2;
+		else if (aantalOgenWorp == 7 || aantalOgenWorp == 11)
+			score = 0;
+		else if (aantalOgenWorp == eersteWorp)
+			score = 1;
+	}
+
+	public int geefAantalOgenWorp()
+	{  
+		int aantalOgenHuidigeWorp = 0;
+		for (Dobbelsteen d : dobbelstenen) {
+			aantalOgenHuidigeWorp += d.getAantalOgen();
+		}
+		return aantalOgenHuidigeWorp;		
+	}
+
+	public int getScore() 
+	{ 
+		return score;
+	}
+
+	public boolean isEindeSpel()
+	{
+		//return (score >=0 && score <=2);
+		return score != -1; // het spel eindigt als er een "echte" score bepaald is
+	}
+}
