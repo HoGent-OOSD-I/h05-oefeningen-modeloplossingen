@@ -1,16 +1,20 @@
 package domein;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.List;
 
 public class Trekking {
 
 	private String naam;
 	private List<Integer> nummers;
-
+	public static final int AANTAL_NUMMERS = 6;
+	
 	public Trekking(String naam, List<Integer> nummers) {
 		this.naam = naam;
-		this.nummers = new ArrayList<Integer>(nummers);
+		// GEEN CONTROLE UNIEKE NUMMERS, nog niet alles geleerd om dit op te lossen
+		this.nummers = new ArrayList<>(nummers);
 	}
 
 	public String getNaam() {
@@ -18,17 +22,20 @@ public class Trekking {
 	}
 
 	public int geefWinst(List<Integer> nummers) {
-		int aantalJuist = 0, winst = 0;
-		for (int nummer : nummers) {
+
+		Set<Integer> uniekeNummers = new HashSet<>(nummers);
+
+		int aantalJuist = 0;
+		for (int nummer : uniekeNummers) {
 			if (this.nummers.contains(nummer)) {
 				aantalJuist++;
 			}
 		}
-		switch (aantalJuist) {
-		case 3, 4 -> winst = 5;
-		case 5 -> winst = 10;
-		case 6 -> winst = 50;
-		}
-		return winst;
+		return switch (aantalJuist) {
+		case 3, 4 -> 5;
+		case 5 -> 10;
+		case 6 -> 50;
+		default -> 0;
+		};
 	}
 }

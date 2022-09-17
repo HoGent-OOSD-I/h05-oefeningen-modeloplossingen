@@ -8,11 +8,11 @@ public class TrekkingRepository {
 	private List<Trekking> trekkingen;
 
 	public TrekkingRepository() {
-		trekkingen = new ArrayList<Trekking>();
+		trekkingen = new ArrayList<>();
 	}
 
-	public void voegTrekkingToe(Trekking trekking) {
-		trekkingen.add(trekking);
+	public void voegTrekkingToe(String naam, List<Integer> nummers) {
+		trekkingen.add(new Trekking(naam, nummers));
 	}
 
 	public Trekking geefTrekking(String naam) {

@@ -8,7 +8,7 @@ public class StartUp {
 	public static void main(String[] args)
 	{
 		DomeinController dc = new DomeinController();
-		JackpotApplicatie ja = new JackpotApplicatie(dc);
-		ja.startJackpotspel();
+		JackpotApplicatie jackpotApplicatie = new JackpotApplicatie(dc);
+		jackpotApplicatie.startJackpotspel();
 	}
 }

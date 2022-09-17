@@ -6,13 +6,12 @@ import domein.DomeinController;
 
 public class JackpotApplicatie {
 
-	private Scanner invoer;
+	private Scanner invoer = new Scanner(System.in);
 	private DomeinController dc;
 
 	public JackpotApplicatie(DomeinController dc)
 	{
 		this.dc = dc; // NOOIT dc = new DomeinController();
-		this.invoer = new Scanner(System.in);
 	}
 
 	public void startJackpotspel()

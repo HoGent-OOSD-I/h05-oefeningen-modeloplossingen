@@ -12,7 +12,7 @@ public class DomeinController {
 	}
 
 	public void registreerTrekking(String naam, List<Integer> nummers) {
-		trekkingRepo.voegTrekkingToe(new Trekking(naam, nummers));
+		trekkingRepo.voegTrekkingToe(naam, nummers);
 	}
 
 	public void selecteerTrekking(String naam) {
@@ -20,6 +20,14 @@ public class DomeinController {
 	}
 
 	public int geefWinst(List<Integer> nummers) {
+		if (geselecteerdeTrekking == null)
+			return 0;
 		return geselecteerdeTrekking.geefWinst(nummers);
 	}
+
+	public int aantalNummers() {
+		return Trekking.AANTAL_NUMMERS;
+	}
+
 }
+
