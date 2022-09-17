@@ -5,13 +5,10 @@ import java.security.SecureRandom;
 public class Wiel {
 
 	private int getal;
-
+	private SecureRandom sr;
+	
 	public Wiel() {
-		setGetal(0);	//overbodig, want defaultwaarde voor int is 0
-	}
-
-	private void setGetal(int getal) {
-		this.getal = getal;
+		sr = new SecureRandom();
 	}
 
 	public int getGetal() {
@@ -19,9 +16,7 @@ public class Wiel {
 	}
 
 	public void draai() {
-		SecureRandom sr = new SecureRandom();
-		setGetal(sr.nextInt(10));
-	}
-	
+		getal =sr.nextInt(10);
+	}	
 	
 }

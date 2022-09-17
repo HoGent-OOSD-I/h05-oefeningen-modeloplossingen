@@ -1,16 +1,13 @@
 package domein;
 
 import java.util.List;
-import java.util.*;
 
 public class DomeinController {
 
 	private Jackpot jackpot;
 
 	public void startNieuweJackpot() {
-		
 		this.jackpot = new Jackpot();
-		
 	}
 
 	public List<Integer> geefGetallenWielen() {
@@ -24,6 +21,5 @@ public class DomeinController {
 	public int geefScore() {
 		return jackpot.geefScore();
 	}
-	
 	
 }
