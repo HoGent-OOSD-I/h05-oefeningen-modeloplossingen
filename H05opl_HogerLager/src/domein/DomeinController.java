@@ -2,41 +2,41 @@ package domein;
 
 public class DomeinController
 {
-	private HogerLager hl;
-	private boolean correctGeraden;
+	private HogerLager hogerLager;
 
 	public void startHogerLager()
 	{
-		hl = new HogerLager();
-	}
-
+		hogerLager = new HogerLager();
+	}	
+			
 	public int geefHuidigeKaart()
 	{
-		return hl.geefWaardeHuidigeKaart();
+		return hogerLager.geefWaardeHuidigeKaart();
 	}
 
 	public void raadHogerLager(boolean hogerLager)
 	{
-		correctGeraden = hl.raadHogerLager(hogerLager);
+		this.hogerLager.raadHogerLager(hogerLager);
 	}
 
 	public boolean isCorrectGeraden()
 	{
-		return correctGeraden;
+		return hogerLager.isCorrectGeraden();
 	}
 
 	public boolean isEindeSpel()
 	{
-		return hl.isEindeSpel();
+		return hogerLager.isEindeSpel();
 	}
 
 	public int geefScore()
 	{
-		return hl.getScore();
+		return hogerLager.getScore();
 	}
 
 	public boolean isGewonnen()
 	{
-		return hl.isGewonnen();
+		return hogerLager.isGewonnen();
 	}
+
 }
