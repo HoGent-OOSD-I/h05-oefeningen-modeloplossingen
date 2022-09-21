@@ -6,50 +6,63 @@ import java.util.Scanner;
 
 import domein.DomeinController;
 
-public class BlackjackApp
-{
+public class BlackjackApp {
+	
+	private Scanner invoer = new Scanner(System.in);
+	private DomeinController dc;
 
-	public static void main(String[] args)
-	{
-		Scanner s = new Scanner(System.in);
-		//Dit is een test
-		DomeinController dc = new DomeinController();
-		
+	public BlackjackApp(DomeinController domeinController) {
+		dc = domeinController;
+	}
+
+	public void startBlackjack() {
 		System.out.println("We spelen vandaag Blackjack!");
-		
-		double inzet;
-		do
-		{
-			System.out.print("Hoeveel bedraagt je inzet in euro? (>0)");
-			inzet = s.nextDouble();
-		}
-		while (inzet <= 0);
-		
+
+		double inzet = invoerInzet();
+
 		dc.startBlackjack(new BigDecimal(inzet));
-		
-		int antwoord, punten;
-		do
-		{
-			// toon speelbord
-			List<String> kaarten = dc.geefSpeelbord();
-			for (String kaart : kaarten)
-				System.out.println(kaart);
-			// en punten
-			punten = dc.geefPunten();
-			System.out.printf("Je hebt tot nu toe %d punten%n", punten);
-			
-			do
-			{
-				System.out.print("Wil je nog een kaart? Typ 0 voor nee en 1 voor ja: ");
-				antwoord = s.nextInt();
-			}
-			while (antwoord < 0 || antwoord > 1);
-			
+
+		int antwoord;
+		do {
+			toonSpeelbord();
+
+			toonPunten();
+
+			antwoord = invoerAntwoord();
+
 			if (antwoord == 1)
 				dc.neemKaart();
-		}
-		while (antwoord == 1 && !dc.isEindeBlackjack());
-		
+		} while (antwoord == 1 && !dc.isEindeBlackjack());
+
 		System.out.printf("Je hebt %.2f euro gewonnen!", dc.geefWinst().doubleValue());
+	}
+
+	private double invoerInzet() {
+		double inzet;
+		do {
+			System.out.print("Hoeveel bedraagt je inzet in euro? (>0)");
+			inzet = invoer.nextDouble();
+		} while (inzet <= 0);
+		return inzet;
+	}
+
+	private void toonSpeelbord() {
+		List<String> kaarten = dc.geefSpeelbord();
+		for (String kaart : kaarten)
+			System.out.println(String.format("Deze kaart is een %s", kaart));
+	}
+
+	private void toonPunten() {
+		int punten = dc.geefPunten();
+		System.out.printf("Je hebt tot nu toe %d punten%n", punten);
+	}
+
+	private int invoerAntwoord() {
+		int antwoord;
+		do {
+			System.out.print("Wil je nog een kaart? Typ 0 voor nee en 1 voor ja: ");
+			antwoord = invoer.nextInt();
+		} while (antwoord < 0 || antwoord > 1);
+		return antwoord;
 	}
 }

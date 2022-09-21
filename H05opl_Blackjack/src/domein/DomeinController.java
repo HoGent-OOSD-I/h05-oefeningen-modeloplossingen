@@ -18,10 +18,8 @@ public class DomeinController
 		List<Kaart> kaarten = blackjack.getSpeelbord();
 		List<String> speelbord = new ArrayList<>();
 		
-		String[] betekenis = {"aas", "twee", "drie", "vier", "vijf", "zes", "zeven", "acht", "negen", "tien", "boer", "dame", "koning"};
-		
 		for (Kaart k : kaarten)
-			speelbord.add(String.format("Deze kaart is een %s", betekenis[k.getWaarde()-1]));
+			speelbord.add(k.geefBetekenisWaarde());
 		
 		return speelbord;
 	}
