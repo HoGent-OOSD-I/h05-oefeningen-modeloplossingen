@@ -4,31 +4,36 @@ import java.util.List;
 import java.util.Scanner;
 
 import domein.DomeinController;
+import domein.PersonageDTO;
 
 public class PersonagesApplicatie
 {
-	private static Scanner sc = new Scanner(System.in);
+	private Scanner sc = new Scanner(System.in);
+	private DomeinController dc;
 
-	public static void main(String[] args)
+	public PersonagesApplicatie(DomeinController domeinController)
 	{
-		DomeinController dc = new DomeinController();
-		
-		int keuze = maakKeuze(dc);
+		dc = domeinController;
+	}
+
+	public void start()
+	{		
+		int keuze = maakKeuze();
 		
 		while (keuze != 0)
 		{
 			switch (keuze)
 			{
-				case 1 -> maakCategorie(dc);
-				case 2 -> maakPersonage(dc);
-				case 3 -> selecteerPersonage(dc);
+				case 1 -> maakCategorie();
+				case 2 -> maakPersonage();
+				case 3 -> selecteerPersonage();
 			}
 			
-			keuze = maakKeuze(dc);
+			keuze = maakKeuze();
 		}
 	}
 	
-	private static int maakKeuze(DomeinController dc)
+	private int maakKeuze()
 	{
 		System.out.println("MENU\n====");
 		System.out.println("0. Afsluiten");
@@ -36,17 +41,18 @@ public class PersonagesApplicatie
 		System.out.println("2. Maak een nieuw personage");
 		System.out.println("3. Selecteer een personage");
 		
-		int keuze = -1;
+		int keuze;
 		
-		while (keuze < 0 || keuze > 3) {
+		do
+		{
 			System.out.print("Maak een keuze: ");
 			keuze = sc.nextInt();
-		}
+		}while (keuze < 0 || keuze > 3);
 		
 		return keuze;
 	}
 	
-	private static void maakCategorie(DomeinController dc)
+	private void maakCategorie()
 	{
 		System.out.println("\nGeef de informatie voor de nieuwe categorie:");
 
@@ -65,68 +71,71 @@ public class PersonagesApplicatie
 		dc.maakCategorie(omschrijving, kracht, snelheid, lenigheid);
 	}
 	
-	private static void maakPersonage(DomeinController dc)
+	private void maakPersonage()
 	{
 		System.out.println("\nCATEGORIEEN\n===========");
 
-		List<String> categorieën = dc.geefCategorieën();
-		for (int i = 0; i < categorieën.size(); i++)
-			System.out.printf("%d. %s%n", i + 1, categorieën.get(i));
+		List<String> categorieen = dc.geefCategorieen();
+		int i = 1;
+		for (String categorie:categorieen)
+			System.out.printf("%d. %s%n", i++ , categorie);
 		
-		int categorieIndex = -1;
+		int categorieIndex;
 
-		while (categorieIndex < 0 || categorieIndex >= categorieën.size())
+		do
 		{
 			System.out.print("\nKies een categorie: ");
 			categorieIndex = sc.nextInt() - 1;
-		}
+		}while (categorieIndex < 0 || categorieIndex >= categorieen.size());
 
-		dc.selecteerCategorie(categorieën.get(categorieIndex));
+		dc.selecteerCategorie(categorieen.get(categorieIndex));
 		
 		System.out.print("\nGeef een naam voor het personage: ");
 		String naam = sc.next();
 		
 		dc.registreerPersonage(naam);
 		
-		printDetailsPersonage(dc, true);
+		printDetailsPersonage(true);
 	}
 	
-	private static void selecteerPersonage(DomeinController dc)
+	private void selecteerPersonage()
 	{
 		System.out.println("\nPERSONAGES\n===========");
 
-		List<List<String>> personages = dc.geefPersonages();
-		for (int i = 0; i < personages.size(); i++)
-			System.out.printf("%d. %s (%s)%n", i + 1, personages.get(i).get(0), personages.get(i).get(1));
+		List<PersonageDTO> personages = dc.geefPersonages();
+		int i = 1;
+		for (PersonageDTO personage:personages)
+			System.out.printf("%d. %s (%s)%n", i++, personage.naam(), personage.omschrijving());
 		
 		System.out.printf("%d. Maak een nieuw personage%n", personages.size() + 1);
 
-		int personageIndex = -1;
+		int personageIndex;
 		
-		while (personageIndex < 0 || personageIndex > personages.size())
+		do
 		{
 			System.out.print("\nKies een Personage: ");
 			personageIndex = sc.nextInt() - 1;
-		}
+		}while (personageIndex < 0 || personageIndex > personages.size());
 		
 		if (personageIndex == personages.size())
-			maakPersonage(dc);
+			maakPersonage();
 		else
 		{
-			dc.selecteerPersonage(personages.get(personageIndex).get(0));
-			printDetailsPersonage(dc, false);
+			dc.selecteerPersonage(personages.get(personageIndex).naam());
+			printDetailsPersonage(false);
 		}
 	}
 	
-	private static void printDetailsPersonage(DomeinController dc, boolean isNieuwPersonage)
+	private void printDetailsPersonage(boolean isNieuwPersonage)
 	{
-		List<String> details = dc.geefDetailsPersonage();
-		System.out.printf("\nJe %s dit personage:%n", isNieuwPersonage ? "maakte" : "selecteerde");
-		System.out.printf("- Naam: %s%n", details.get(0));
+		PersonageDTO personageDTO = dc.geefDetailsPersonage();
+		System.out.printf("\nJe %s dit personage:%n", isNieuwPersonage ?
+				"maakte" : "selecteerde");
+		System.out.printf("- Naam: %s%n", personageDTO.naam());
 		System.out.println("- Categorie:");
-		System.out.printf("    - Omschrijving: %s%n", details.get(1));
-		System.out.printf("    - Kracht: %s%n", details.get(2));
-		System.out.printf("    - Snelheid: %s%n", details.get(3));
-		System.out.printf("    - Lenigheid: %s%n%n", details.get(4));
+		System.out.printf("    - Omschrijving: %s%n", personageDTO.omschrijving());
+		System.out.printf("    - Kracht: %s%n", personageDTO.kracht());
+		System.out.printf("    - Snelheid: %s%n", personageDTO.snelheid());
+		System.out.printf("    - Lenigheid: %s%n%n", personageDTO.lenigheid());
 	}
 }

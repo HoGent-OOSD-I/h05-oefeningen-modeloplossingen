@@ -5,34 +5,34 @@ import java.util.ArrayList;
 
 public class CategorieRepository
 {
-	private List<Categorie> categorieën;
+	private List<Categorie> categorieen;
 	
 	public CategorieRepository()
 	{
-		categorieën = new ArrayList<>();
-		
-		categorieën.add(new Categorie("Superheld", 350, 10, 5));
-		categorieën.add(new Categorie("Mens", 10, 4, 2));
-		categorieën.add(new Categorie("Dier", 100, 7, 3));
+		categorieen = new ArrayList<>();
+		categorieen.add(new Categorie("Superheld", 350, 10, 5));
+		categorieen.add(new Categorie("Mens", 10, 4, 2));
+		categorieen.add(new Categorie("Dier", 100, 7, 3));
 	}
 	
-	public void voegToe(Categorie categorie)
+
+	public List<Categorie> getCategorieen()
 	{
-		if (geefCategorie(categorie.getOmschrijving()) == null)
-			categorieën.add(categorie);
-	}
-	
-	public List<Categorie> getCategorieën()
-	{
-		return categorieën;
+		return categorieen;
 	}
 	
 	public Categorie geefCategorie(String omschrijving)
 	{
-		for (Categorie c : categorieën)
+		for (Categorie c : categorieen)
 			if (c.getOmschrijving().equals(omschrijving))
 				return c;
 		
 		return null;
+	}
+
+	public void voegToe(String omschrijving, int snelheid, int kracht, int lenigheid)
+	{
+		if (geefCategorie(omschrijving) == null)
+			categorieen.add(new Categorie(omschrijving,snelheid, kracht, lenigheid));
 	}
 }

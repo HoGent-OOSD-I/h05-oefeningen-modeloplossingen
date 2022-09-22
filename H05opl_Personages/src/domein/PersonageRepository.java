@@ -12,12 +12,6 @@ public class PersonageRepository
 		personages = new ArrayList<>();
 	}
 	
-	public void voegToe(Personage personage)
-	{
-		if (geefPersonage(personage.getNaam()) == null)
-			personages.add(personage);		
-	}
-	
 	public List<Personage> getPersonages()
 	{
 		return personages;
@@ -31,4 +25,16 @@ public class PersonageRepository
 
 		return null;
 	}
+
+	public Personage voegToe(String naam, Categorie categorie)
+	{
+		Personage personage = null;
+		if (geefPersonage(naam) == null) {
+			personage = new Personage(naam, categorie);
+			personages.add(personage);	
+		}
+		return personage; 
+	}
+
 }
+

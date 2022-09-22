@@ -18,70 +18,63 @@ public class DomeinController
 	
 	public void maakCategorie(String omschrijving, int kracht, int snelheid, int lenigheid)
 	{
-		categorieRepo.voegToe(new Categorie(omschrijving, snelheid, kracht, lenigheid));
-	}
-
-	public List<String> geefCategorieën()
-	{
-		List<String> categorieën = new ArrayList<>();
-		
-		for (Categorie c : categorieRepo.getCategorieën())
-			categorieën.add(c.getOmschrijving());
-		
-		return categorieën;
+		categorieRepo.voegToe(omschrijving, snelheid, kracht, lenigheid);
 	}
 	
-	public void selecteerCategorie(String omschrijving)
+	public PersonageDTO geefDetailsPersonage()
 	{
-		huidigeCategorie = categorieRepo.geefCategorie(omschrijving);
-	}
-	
-	public List<String> geefDetailsPersonage()
-	{
-		List<String> details = new ArrayList<>();
+		if (huidigPersonage == null)
+			return null;
 		
-		if (huidigPersonage != null)
-		{
-			details.add(huidigPersonage.getNaam());
-
-			Categorie personageCat = huidigPersonage.getCategorie();
-			details.add(personageCat.getOmschrijving());
-			details.add(String.format("%d", personageCat.getKracht()));
-			details.add(String.format("%d", personageCat.getSnelheid()));
-			details.add(String.format("%d", personageCat.getLenigheid()));
-		}
+		Categorie personageCat = huidigPersonage.getCategorie();
+		return new PersonageDTO(huidigPersonage.getNaam(), personageCat.getOmschrijving(), 
+				personageCat.getKracht(), personageCat.getSnelheid(), personageCat.getLenigheid());
 		
-		return details;
 	}
-	
-	public void registreerPersonage(String naam)
+		
+	public List<PersonageDTO> geefPersonages()
 	{
-		huidigPersonage = new Personage(naam, huidigeCategorie);
-		personageRepo.voegToe(huidigPersonage);
-	}
-	
-	public List<List<String>> geefPersonages()
-	{
-		List<List<String>> personages = new ArrayList<>();
-		List<String> personageLijst;
+		List<PersonageDTO> personages = new ArrayList<>();
 		
 		for (Personage p : personageRepo.getPersonages())
 		{
-			personageLijst = new ArrayList<>();
-			personageLijst.add(p.getNaam());
-
 			Categorie personageCat = p.getCategorie();
-			personageLijst.add(personageCat.getOmschrijving());
-			
-			personages.add(personageLijst);
-			
+			PersonageDTO personageDTO = 
+					new PersonageDTO(p.getNaam(), personageCat.getOmschrijving());
+			personages.add(personageDTO);
 		}
 		
 		return personages;
 	}
-	
+
 	public void selecteerPersonage(String naam)
 	{
 		huidigPersonage = personageRepo.geefPersonage(naam);
 	}
+
+	public List<String> geefCategorieen()
+	{
+		List<String> categorieen = new ArrayList<>();
+		
+		for (Categorie c : categorieRepo.getCategorieen())
+			categorieen.add(c.getOmschrijving());
+		
+		return categorieen;
+	}
+
+	public void selecteerCategorie(String omschrijving)
+	{
+		huidigeCategorie = categorieRepo.geefCategorie(omschrijving);
+	}
+
+	public void registreerPersonage(String naam)
+	{
+		if (huidigeCategorie != null)
+		{
+			Personage personage = personageRepo.voegToe(naam, huidigeCategorie);
+		    if (personage != null)
+		    	huidigPersonage = personage;
+		}
+	}
+
 }
