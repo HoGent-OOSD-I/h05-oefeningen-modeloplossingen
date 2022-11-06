@@ -10,8 +10,8 @@ public class Spel
 	{
 		score = -1; // dit is geen geldige score die als eindresultaat kan gegeven worden 
 		dobbelstenen = new Dobbelsteen[2];
-		for (int i = 1; i <= dobbelstenen.length; i++)
-			dobbelstenen[i-1] = new Dobbelsteen();
+		for (int i = 0; i < dobbelstenen.length; i++)
+			dobbelstenen[i] = new Dobbelsteen();
 	}
 
 	public void rolDobbelstenen() 
@@ -59,7 +59,6 @@ public class Spel
 
 	public boolean isEindeSpel()
 	{
-		//return (score >=0 && score <=2);
 		return score != -1; // het spel eindigt als er een "echte" score bepaald is
 	}
 }
