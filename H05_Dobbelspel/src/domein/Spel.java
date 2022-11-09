@@ -26,21 +26,26 @@ public class Spel
 		bepaalEersteWorp(aantalOgenHuidigeWorp);
 	}
 
-	private void bepaalEersteWorp(int aantalOgenWorp)
-	{ 
-		// als ik nog niet eerder geworpen had, staat eersteWorp nog op 0 en pas ik dit aan
-		if (eersteWorp == 0) 
-			eersteWorp = aantalOgenWorp; // eersteWorp wordt aangepast!
+	private boolean isEersteWorp()
+	{
+		return (eersteWorp == 0);
 	}
-
+	
 	private void bepaalScore(int aantalOgenWorp) 
 	{ 
-		if (eersteWorp == 0 && (aantalOgenWorp == 7 || aantalOgenWorp == 11))
+		if (isEersteWorp() && (aantalOgenWorp == 7 || aantalOgenWorp == 11))
 			score = 2;
 		else if (aantalOgenWorp == 7 || aantalOgenWorp == 11)
 			score = 0;
 		else if (aantalOgenWorp == eersteWorp)
 			score = 1;
+	}
+	
+	private void bepaalEersteWorp(int aantalOgenWorp)
+	{ 
+		// als ik nog niet eerder geworpen had, staat eersteWorp nog op 0 en pas ik dit aan
+		if (isEersteWorp()) 
+			eersteWorp = aantalOgenWorp; // eersteWorp wordt aangepast!
 	}
 
 	public int geefAantalOgenWorp()
