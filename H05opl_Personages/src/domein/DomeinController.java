@@ -3,6 +3,8 @@ package domein;
 import java.util.ArrayList;
 import java.util.List;
 
+import dto.PersonageDTO;
+
 public class DomeinController
 {
 	private CategorieRepository categorieRepo;

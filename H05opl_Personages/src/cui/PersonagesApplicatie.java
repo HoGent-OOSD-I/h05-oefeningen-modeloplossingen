@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import domein.DomeinController;
-import domein.PersonageDTO;
+import dto.PersonageDTO;
 
 public class PersonagesApplicatie
 {

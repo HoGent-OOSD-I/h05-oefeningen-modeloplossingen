@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 import domein.DomeinController;
 
-public class HogerLagerApp {
+public class HogerLagerApplicatie {
 	private Scanner invoer = new Scanner(System.in);
 	private DomeinController dc;
 	private final int HOGER = 0;
 
-	public HogerLagerApp(DomeinController domeinController) {
+	public HogerLagerApplicatie(DomeinController domeinController) {
 		dc = domeinController;
 	}
 

@@ -6,12 +6,12 @@ import java.util.Scanner;
 
 import domein.DomeinController;
 
-public class BlackjackApp {
+public class BlackjackApplicatie {
 	
 	private Scanner invoer = new Scanner(System.in);
 	private DomeinController dc;
 
-	public BlackjackApp(DomeinController domeinController) {
+	public BlackjackApplicatie(DomeinController domeinController) {
 		dc = domeinController;
 	}
 
