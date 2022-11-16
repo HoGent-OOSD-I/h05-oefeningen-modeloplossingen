@@ -68,7 +68,7 @@ public class PersonagesApplicatie
 		System.out.print("- leningheid (in interval [1, 5]): ");
 		int lenigheid = sc.nextInt();
 		
-		dc.maakCategorie(omschrijving, kracht, snelheid, lenigheid);
+		dc.maakCategorie(omschrijving, snelheid, kracht, lenigheid);
 	}
 	
 	private void maakPersonage()

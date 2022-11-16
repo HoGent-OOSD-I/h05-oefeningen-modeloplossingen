@@ -18,7 +18,7 @@ public class DomeinController
 		personageRepo = new PersonageRepository();
 	}
 	
-	public void maakCategorie(String omschrijving, int kracht, int snelheid, int lenigheid)
+	public void maakCategorie(String omschrijving, int snelheid, int kracht, int lenigheid)
 	{
 		categorieRepo.voegToe(omschrijving, snelheid, kracht, lenigheid);
 	}

@@ -29,7 +29,7 @@ public class CategorieRepository
 		
 		return null;
 	}
-
+	
 	public void voegToe(String omschrijving, int snelheid, int kracht, int lenigheid)
 	{
 		if (geefCategorie(omschrijving) == null)
