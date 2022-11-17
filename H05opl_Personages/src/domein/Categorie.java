@@ -22,7 +22,7 @@ public class Categorie
 
 	private void setOmschrijving(String omschrijving)
 	{
-		if (omschrijving.isEmpty() || omschrijving.length() > 100)
+		if (omschrijving == null || omschrijving.isBlank() || omschrijving.length() > 100)
 			this.omschrijving = "anoniem";
 		else
 			this.omschrijving = omschrijving;
@@ -36,10 +36,7 @@ public class Categorie
 
 	private void setSnelheid(int snelheid)
 	{
-		if (snelheid <= 0)
-			this.snelheid = 1; 
-		else 
-		    this.snelheid = snelheid;
+		this.snelheid = (snelheid <= 0)? 1: snelheid;
 	}
 
 	public int getKracht()
@@ -49,10 +46,7 @@ public class Categorie
 
 	private void setKracht(int kracht)
 	{
-		if (kracht < 1 || kracht > 10)
-			this.kracht = 1;
-		else
-			this.kracht = kracht;
+		this.kracht = (kracht < 1 || kracht > 10)? 1: kracht;
 	}
 
 	public int getLenigheid()
@@ -62,9 +56,6 @@ public class Categorie
 
 	private void setLenigheid(int lenigheid)
 	{
-		if (lenigheid < 1 || lenigheid > 5)
-			this.lenigheid = 1;
-		else 
-			this.lenigheid = lenigheid;
+		this.lenigheid = (lenigheid < 1 || lenigheid > 5)? 1: lenigheid;
 	}
 }
