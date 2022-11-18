@@ -22,11 +22,9 @@ public class Trekking {
 	}
 
 	public int geefWinst(List<Integer> nummers) {
-
-		Set<Integer> uniekeNummers = new HashSet<>(nummers);
-
+		// GEEN CONTROLE UNIEKE NUMMERS, nog niet alles geleerd om dit op te lossen
 		int aantalJuist = 0;
-		for (int nummer : uniekeNummers) {
+		for (int nummer : nummers) {
 			if (this.nummers.contains(nummer)) {
 				aantalJuist++;
 			}
