@@ -14,11 +14,6 @@ public class Kaart
 		this.waarde = waarde;
 		this.kleur = kleur;
 	}
-	
-	public int getWaarde()
-	{
-		return this.waarde;
-	}
 
 	public int geefBlackjackWaarde()
 	{ 
