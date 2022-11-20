@@ -26,11 +26,12 @@ public class Blackjack {
 	}
 
 	private List<Kaart> maakKaarten() {
-
+		String[] kleuren = {"Harten", "Klaveren", "Ruiten", "Schoppen"};
+		String[] waarden = {"Aas", "Twee", "Drie", "Vier", "Vijf", "Zes", "Zeven", "Acht", "Negen", "Tien", "Boer", "Dame", "Koning"};
 		List<Kaart> trekstapel = new ArrayList<>();
-		for (int kleur = 1; kleur <= 4; kleur++)
-			for (int waarde = 1; waarde <= 13; waarde++)
-				trekstapel.add(new Kaart(waarde, kleur));
+		for (int kleur = 0; kleur < kleuren.length; kleur++)
+			for (int waarde = 0; waarde < waarden.length; waarde++)
+				trekstapel.add(new Kaart(waarden[waarde], kleuren[kleur]));
 		return trekstapel;
 	}
 

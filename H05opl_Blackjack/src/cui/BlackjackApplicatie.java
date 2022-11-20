@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import domein.DomeinController;
+import dto.KaartDTO;
 
 public class BlackjackApplicatie {
 	
@@ -23,15 +24,18 @@ public class BlackjackApplicatie {
 		dc.startBlackjack(new BigDecimal(inzet));
 
 		int antwoord;
+		
+		toonSpeelbord();
+		toonPunten();
+		
 		do {
-			toonSpeelbord();
-
-			toonPunten();
-
 			antwoord = invoerAntwoord();
 
-			if (antwoord == 1)
+			if (antwoord == 1) {
 				dc.neemKaart();
+				toonSpeelbord();
+				toonPunten();
+			}
 		} while (antwoord == 1 && !dc.isEindeBlackjack());
 
 		System.out.printf("Je hebt %.2f euro gewonnen!", dc.geefWinst().doubleValue());
@@ -47,9 +51,9 @@ public class BlackjackApplicatie {
 	}
 
 	private void toonSpeelbord() {
-		List<String> kaarten = dc.geefSpeelbord();
-		for (String kaart : kaarten)
-			System.out.println(String.format("Deze kaart is een %s", kaart));
+		List<KaartDTO> kaarten = dc.geefSpeelbord();
+		for (KaartDTO kaart : kaarten)
+			System.out.printf("Deze kaart is een %s %s%n", kaart.kleur(), kaart.waarde());
 	}
 
 	private void toonPunten() {
