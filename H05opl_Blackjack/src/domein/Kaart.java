@@ -5,8 +5,7 @@ public class Kaart
 	private final String waarde;
 	private final String kleur;
 	
-    //private static final String[] BETEKENIS = {"Aas", "Twee", "Drie", "Vier", "Vijf", "Zes", "Zeven", "Acht", "Negen", "Tien", "Boer", "Dame", "Koning"};
-	private static final int GRENS_WAARDE = 10;
+    private static final int GRENS_WAARDE = 10;
     public static final int AAS_WAARDE = 11;
 	
     public Kaart(String waarde, String kleur)
@@ -27,6 +26,7 @@ public class Kaart
 	{ 
 		return switch(waarde)
 		{
+		case "Aas" -> AAS_WAARDE;
 		case "Twee" -> 2;
 		case "Drie" -> 3;
 		case "Vier" -> 4;
@@ -35,16 +35,8 @@ public class Kaart
 		case "Zeven" -> 7;
 		case "Acht" -> 8;
 		case "Negen" -> 9;
-		case "Tien" -> 10;
-		default -> AAS_WAARDE;
+		default -> GRENS_WAARDE;
 		};
-		//int temp = waarde <= GRENS_WAARDE ? waarde : GRENS_WAARDE; 
-		//return temp == 1 ? AAS_WAARDE : temp;
 	}
-	
-	/*
-	public String geefBetekenisWaarde()
-	{
-		return BETEKENIS[waarde-1];
-	}*/
+
 }
