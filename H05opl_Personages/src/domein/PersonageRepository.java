@@ -26,14 +26,14 @@ public class PersonageRepository
 		return null;
 	}
 
-	public Personage voegToe(String naam, Categorie categorie)
+	public Personage voegToe(Personage personage)
 	{
-		Personage personage = null;
-		if (geefPersonage(naam) == null) {
-			personage = new Personage(naam, categorie);
+		Personage nieuwePersonage = null;
+		if (geefPersonage(personage.getNaam()) == null) {
+			nieuwePersonage = personage;
 			personages.add(personage);	
 		}
-		return personage; 
+		return nieuwePersonage; 
 	}
 
 }

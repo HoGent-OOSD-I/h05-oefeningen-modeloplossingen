@@ -30,9 +30,9 @@ public class CategorieRepository
 		return null;
 	}
 	
-	public void voegToe(String omschrijving, int snelheid, int kracht, int lenigheid)
+	public void voegToe(Categorie categorie)
 	{
-		if (geefCategorie(omschrijving) == null)
-			categorieen.add(new Categorie(omschrijving,snelheid, kracht, lenigheid));
+		if (geefCategorie(categorie.getOmschrijving()) == null)
+			categorieen.add(categorie);
 	}
 }

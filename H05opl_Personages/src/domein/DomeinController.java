@@ -20,7 +20,8 @@ public class DomeinController
 	
 	public void maakCategorie(String omschrijving, int snelheid, int kracht, int lenigheid)
 	{
-		categorieRepo.voegToe(omschrijving, snelheid, kracht, lenigheid);
+		categorieRepo.voegToe(
+		    new Categorie(omschrijving, snelheid, kracht, lenigheid));
 	}
 	
 	public PersonageDTO geefDetailsPersonage()
@@ -73,7 +74,8 @@ public class DomeinController
 	{
 		if (huidigeCategorie != null)
 		{
-			Personage personage = personageRepo.voegToe(naam, huidigeCategorie);
+			Personage p = new Personage(naam, huidigeCategorie);
+			Personage personage = personageRepo.voegToe(p);
 		    if (personage != null)
 		    	huidigPersonage = personage;
 		}
