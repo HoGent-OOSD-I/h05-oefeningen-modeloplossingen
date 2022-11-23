@@ -14,7 +14,6 @@ public class CategorieRepository
 		categorieen.add(new Categorie("Mens", 10, 4, 2));
 		categorieen.add(new Categorie("Dier", 100, 7, 3));
 	}
-	
 
 	public List<Categorie> getCategorieen()
 	{

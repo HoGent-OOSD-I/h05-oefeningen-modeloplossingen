@@ -74,9 +74,9 @@ public class DomeinController
 	{
 		if (huidigeCategorie != null)
 		{
-			Personage p = new Personage(naam, huidigeCategorie);
-			Personage personage = personageRepo.voegToe(p);
-		    if (personage != null)
+			Personage personage = new Personage(naam, huidigeCategorie);
+			boolean toegevoegd = personageRepo.voegToe(personage);
+		    if (toegevoegd)
 		    	huidigPersonage = personage;
 		}
 	}

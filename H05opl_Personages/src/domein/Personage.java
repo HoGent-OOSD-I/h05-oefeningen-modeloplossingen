@@ -18,8 +18,7 @@ public class Personage
 	
 	private void setNaam(String naam)
 	{
-		if (naam == null || naam.isBlank() || 
-				naam.length() < 3 || naam.length() > 50)
+		if (naam == null || naam.isBlank() || naam.length() < 3 || naam.length() > 50)
 			this.naam = "anoniem";
 		else
 			this.naam = naam;
