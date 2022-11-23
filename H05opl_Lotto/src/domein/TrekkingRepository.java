@@ -11,8 +11,8 @@ public class TrekkingRepository {
 		trekkingen = new ArrayList<>();
 	}
 
-	public void voegTrekkingToe(String naam, List<Integer> nummers) {
-		trekkingen.add(new Trekking(naam, nummers));
+	public void voegTrekkingToe(Trekking trekking) {
+		trekkingen.add(trekking);
 	}
 
 	public Trekking geefTrekking(String naam) {

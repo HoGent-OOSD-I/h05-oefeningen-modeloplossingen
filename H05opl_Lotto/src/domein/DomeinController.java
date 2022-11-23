@@ -12,7 +12,7 @@ public class DomeinController {
 	}
 
 	public void registreerTrekking(String naam, List<Integer> nummers) {
-		trekkingRepo.voegTrekkingToe(naam, nummers);
+		trekkingRepo.voegTrekkingToe(new Trekking(naam, nummers));
 	}
 
 	public void selecteerTrekking(String naam) {
