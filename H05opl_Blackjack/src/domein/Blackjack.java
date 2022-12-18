@@ -29,9 +29,9 @@ public class Blackjack {
 		String[] kleuren = {"Harten", "Klaveren", "Ruiten", "Schoppen"};
 		String[] waarden = {"Aas", "Twee", "Drie", "Vier", "Vijf", "Zes", "Zeven", "Acht", "Negen", "Tien", "Boer", "Dame", "Koning"};
 		List<Kaart> trekstapel = new ArrayList<>();
-		for (int kleur = 0; kleur < kleuren.length; kleur++)
-			for (int waarde = 0; waarde < waarden.length; waarde++)
-				trekstapel.add(new Kaart(waarden[waarde], kleuren[kleur]));
+		for (String kleur : kleuren)
+			for (String waarde : waarden)
+				trekstapel.add(new Kaart(waarde, kleur));
 		return trekstapel;
 	}
 
