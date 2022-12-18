@@ -40,21 +40,22 @@ public class Blackjack {
 	}
 
 	public int geefPunten() {
-		int punten = 0;
-		boolean aasAanwezig = false;
-
-		for (Kaart k : speelbord) {
-			if (k.geefBlackjackWaarde() == Kaart.AAS_WAARDE)
-				aasAanwezig = true;
-			punten += k.geefBlackjackWaarde();
-		}
-
-		if (aasAanwezig && punten > BLACKJACK_WAARDE)
-			punten -= 10;
-
-		return punten;
-	}
-
+        int punten = 0;
+        for(Kaart k : speelbord)
+                punten+= k.geefBlackjackWaarde();
+        if(punten > BLACKJACK_WAARDE)
+        {
+                for(Kaart k : speelbord)
+                {
+                        if(k.getWaarde().equals("Aas"))
+                                punten -=10;
+                        if(punten <= BLACKJACK_WAARDE)
+                                return punten;
+                }
+        }
+        return punten;        
+    }
+	
 	public void neemKaart() {
 		if (!trekstapel.isEmpty())
 			speelbord.add(trekstapel.remove(0));
