@@ -69,9 +69,9 @@ public class Blackjack {
 
 		if (punten == BLACKJACK_WAARDE) {
 			if (speelbord.size() == 2)
-				return inzet.multiply(new BigDecimal(3));
-			else
-				return inzet.multiply(new BigDecimal(2));
+				return inzet.multiply(BigDecimal.valueOf(3));
+			
+			return inzet.multiply(BigDecimal.valueOf(2));
 		}
 		if (punten < BLACKJACK_WAARDE)
 			return inzet;
