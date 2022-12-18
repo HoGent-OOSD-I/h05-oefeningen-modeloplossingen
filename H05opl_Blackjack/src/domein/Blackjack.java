@@ -61,7 +61,7 @@ public class Blackjack {
 	}
 
 	public boolean isEindeBlackjack() {
-		return geefPunten() > BLACKJACK_WAARDE;
+		return geefPunten() >= BLACKJACK_WAARDE;
 	}
 
 	public BigDecimal geefWinst() {
