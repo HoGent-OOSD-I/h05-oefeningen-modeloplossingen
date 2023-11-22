@@ -47,7 +47,7 @@ public class Blackjack {
         {
                 for(Kaart k : speelbord)
                 {
-                        if(k.getWaarde().equals("Aas"))
+                        if(k.geefBlackjackWaarde() == Kaart.AAS_WAARDE)
                                 punten -=10;
                         if(punten <= BLACKJACK_WAARDE)
                                 return punten;
@@ -55,13 +55,13 @@ public class Blackjack {
         }
         return punten;        
     }
-	
+
 	public void neemKaart() {
 		if (!trekstapel.isEmpty())
 			speelbord.add(trekstapel.remove(0));
 	}
 
-	public boolean isEindeBlackjack() {
+    public boolean isEindeBlackjack() {
 		return geefPunten() >= BLACKJACK_WAARDE;
 	}
 

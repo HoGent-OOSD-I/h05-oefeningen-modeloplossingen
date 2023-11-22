@@ -12,6 +12,8 @@ public class BlackjackApplicatie {
 	private Scanner invoer = new Scanner(System.in);
 	private DomeinController dc;
 
+	private static final int JA = 1;
+	
 	public BlackjackApplicatie(DomeinController domeinController) {
 		dc = domeinController;
 	}
@@ -31,13 +33,13 @@ public class BlackjackApplicatie {
 		do {
 			antwoord = invoerAntwoord();
 
-			if (antwoord == 1) {
+			if (antwoord == JA) {
 				dc.neemKaart();
 				toonSpeelbord();
 				toonPunten();
 			}
-		} while (antwoord == 1 && !dc.isEindeBlackjack());
-
+		} while (antwoord == JA && !dc.isEindeBlackjack());
+		
 		System.out.printf("Je hebt %.2f euro gewonnen!", dc.geefWinst().doubleValue());
 	}
 
