@@ -12,15 +12,26 @@ public class Trekking {
 	public static final int AANTAL_NUMMERS = 6;
 	
 	public Trekking(String naam, List<Integer> nummers) {
-		this.naam = naam;
-		// GEEN CONTROLE UNIEKE NUMMERS, nog niet alles geleerd om dit op te lossen
-		this.nummers = new ArrayList<>(nummers);
+		setNaam(naam);
+		setNummers(nummers);
 	}
 
 	public String getNaam() {
 		return naam;
 	}
+	
+	private void setNaam(String naam)
+	{
+		if (naam != null && !naam.isBlank())
+			this.naam = naam;
+	}
 
+	private void setNummers(List<Integer> nummers)
+	{
+		// GEEN CONTROLE UNIEKE NUMMERS, nog niet alles geleerd om dit op te lossen
+		this.nummers = new ArrayList<>(nummers);
+	}
+	
 	public int geefWinst(List<Integer> nummers) {
 		// GEEN CONTROLE UNIEKE NUMMERS, nog niet alles geleerd om dit op te lossen
 		int aantalJuist = 0;
