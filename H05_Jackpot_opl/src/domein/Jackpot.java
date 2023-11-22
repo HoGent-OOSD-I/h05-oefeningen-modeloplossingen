@@ -36,18 +36,19 @@ public class Jackpot {
 		
 		int aantal = 0;
 		
-		List<Integer> wielWaarden = geefGetallenWielen();
-		wielWaarden.sort(null);
+		List<Integer> wielwaarden = geefGetallenWielen();
+		wielwaarden.sort(null);
 		
-		for(int wielNr = 0; wielNr< wielWaarden.size()-1; wielNr++)
+		int vorig = -1;
+		for (int waarde: wielwaarden)
 		{
-			if (wielWaarden.get(wielNr) == wielWaarden.get(wielNr+1))
-			{
+			if (vorig == waarde)
 				aantal++;
-			}
+			vorig = waarde;
 		}
+		
 		if (aantal == wielen.size()-1) {
-			if (wielWaarden.get(0) == 9)
+			if (wielwaarden.get(0) == 9)
 				return 50;
 			return 10;
 		}

@@ -11,7 +11,7 @@ public class JackpotApplicatie {
 
 	public JackpotApplicatie(DomeinController dc)
 	{
-		this.dc = dc; // NOOIT dc = new DomeinController();
+		this.dc = dc;
 	}
 
 	public void startJackpotspel()
