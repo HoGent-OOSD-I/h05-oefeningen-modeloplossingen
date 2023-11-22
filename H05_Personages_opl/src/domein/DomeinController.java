@@ -27,23 +27,29 @@ public class DomeinController
 	public PersonageDTO geefDetailsPersonage()
 	{
 		if (huidigPersonage == null)
-			return null;
+			return null;  //exception werpen
 		
 		Categorie personageCat = huidigPersonage.getCategorie();
-		return new PersonageDTO(huidigPersonage.getNaam(), personageCat.getOmschrijving(), 
-				personageCat.getKracht(), personageCat.getSnelheid(), personageCat.getLenigheid());
+		
+		return new PersonageDTO(huidigPersonage.getNaam(), 
+				personageCat.getOmschrijving(), 
+				personageCat.getKracht(), personageCat.getSnelheid(), 
+				personageCat.getLenigheid());
 		
 	}
 		
 	public List<PersonageDTO> geefPersonages()
 	{
-		List<PersonageDTO> personages = new ArrayList<>();
+		List<Personage> personagesLijst = personageRepo.getPersonages();
 		
-		for (Personage p : personageRepo.getPersonages())
+		List<PersonageDTO> personages = new ArrayList<>();
+				
+		for (Personage p : personagesLijst)
 		{
 			Categorie personageCat = p.getCategorie();
 			PersonageDTO personageDTO = 
 					new PersonageDTO(p.getNaam(), personageCat.getOmschrijving());
+			
 			personages.add(personageDTO);
 		}
 		

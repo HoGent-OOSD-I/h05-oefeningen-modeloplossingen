@@ -5,6 +5,8 @@ public class Personage
 	private String naam;
 	private Categorie categorie;
 	
+	private static final String DEFAULT_CATEGORIE = "anoniem";
+	
 	public Personage(String naam, Categorie categorie)
 	{
 		setNaam(naam);
@@ -18,10 +20,9 @@ public class Personage
 	
 	private void setNaam(String naam)
 	{
-		if (naam == null || naam.isBlank() || naam.length() < 3 || naam.length() > 50)
-			this.naam = "anoniem";
-		else
-			this.naam = naam;
+		this.naam = (naam == null || naam.isBlank() || 
+				    naam.length() < 3 || naam.length() > 50)?
+				DEFAULT_CATEGORIE: naam;
 	}
 	
 	public Categorie getCategorie()

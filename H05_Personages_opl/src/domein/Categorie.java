@@ -7,6 +7,13 @@ public class Categorie
 	private int kracht;
 	private int lenigheid;
 
+	private static final String DEFAULT_OMSCHRIJVING = "anoniem";
+	private static final int MIN_SNELHEID = 1;
+	private static final int MIN_KRACHT = 1;
+	private static final int MAX_KRACHT = 10;
+	private static final int MIN_LENINGHEID = 1;
+	private static final int MAX_LENINGHEID = 5;
+	
 	public Categorie(String omschrijving, int snelheid, int kracht, int lenigheid)
 	{
 		setOmschrijving(omschrijving);
@@ -22,10 +29,8 @@ public class Categorie
 
 	private void setOmschrijving(String omschrijving)
 	{
-		if (omschrijving == null || omschrijving.isBlank() || omschrijving.length() > 100)
-			this.omschrijving = "anoniem";
-		else
-			this.omschrijving = omschrijving;
+		this.omschrijving = (omschrijving == null || omschrijving.isBlank() || omschrijving.length() > 100)?
+				DEFAULT_OMSCHRIJVING: omschrijving;
 			
 	}
 
@@ -36,7 +41,7 @@ public class Categorie
 
 	private void setSnelheid(int snelheid)
 	{
-		this.snelheid = (snelheid <= 0)? 1: snelheid;
+		this.snelheid = (snelheid < MIN_SNELHEID)? MIN_SNELHEID: snelheid;
 	}
 
 	public int getKracht()
@@ -46,7 +51,7 @@ public class Categorie
 
 	private void setKracht(int kracht)
 	{
-		this.kracht = (kracht < 1 || kracht > 10)? 1: kracht;
+		this.kracht = (kracht < MIN_KRACHT || kracht > MAX_KRACHT)? MIN_KRACHT: kracht;
 	}
 
 	public int getLenigheid()
@@ -56,6 +61,6 @@ public class Categorie
 
 	private void setLenigheid(int lenigheid)
 	{
-		this.lenigheid = (lenigheid < 1 || lenigheid > 5)? 1: lenigheid;
+		this.lenigheid = (lenigheid < MIN_LENINGHEID || lenigheid > MAX_LENINGHEID)? MIN_LENINGHEID: lenigheid;
 	}
 }

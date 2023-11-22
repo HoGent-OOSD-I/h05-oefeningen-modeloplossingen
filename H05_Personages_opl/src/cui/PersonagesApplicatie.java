@@ -101,11 +101,12 @@ public class PersonagesApplicatie
 	private void selecteerPersonage()
 	{
 		System.out.println("\nPERSONAGES\n===========");
-
+		
 		List<PersonageDTO> personages = dc.geefPersonages();
 		int i = 1;
 		for (PersonageDTO personage:personages)
-			System.out.printf("%d. %s (%s)%n", i++, personage.naam(), personage.omschrijving());
+			System.out.printf("%d. %s (%s)%n", i++, personage.naam(), 
+					personage.omschrijving());
 		
 		System.out.printf("%d. Maak een nieuw personage%n", personages.size() + 1);
 
@@ -131,6 +132,7 @@ public class PersonagesApplicatie
 		PersonageDTO personageDTO = dc.geefDetailsPersonage();
 		System.out.printf("\nJe %s dit personage:%n", isNieuwPersonage ?
 				"maakte" : "selecteerde");
+		
 		System.out.printf("- Naam: %s%n", personageDTO.naam());
 		System.out.println("- Categorie:");
 		System.out.printf("    - Omschrijving: %s%n", personageDTO.omschrijving());
