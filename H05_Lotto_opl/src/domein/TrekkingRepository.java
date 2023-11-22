@@ -6,7 +6,7 @@ import java.util.List;
 public class TrekkingRepository {
 
 	private List<Trekking> trekkingen;
-
+	
 	public TrekkingRepository() {
 		trekkingen = new ArrayList<>();
 	}

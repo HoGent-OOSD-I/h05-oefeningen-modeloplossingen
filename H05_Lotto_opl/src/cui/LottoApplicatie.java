@@ -10,6 +10,8 @@ public class LottoApplicatie {
 	
 	private Scanner invoer = new Scanner(System.in);
     private DomeinController dc;
+    private static final int JA = 1;
+    private static final int NEE = 2;
 
 	public LottoApplicatie(DomeinController domeinController) {
 		dc = domeinController;
@@ -61,41 +63,41 @@ public class LottoApplicatie {
 			System.out.print("Wil je nog nummers controleren voor deze trekking? (1=ja, 2=nee) :");
             keuze = invoer.nextInt();
 		}
-		while(keuze < 1 || keuze > 2);
+		while(keuze < JA || keuze > NEE);
 		return keuze;
 	}
 	
+	private String geefNaam(String vraag)
+	{
+		System.out.print(vraag);
+		return invoer.next();	
+	}
+	
 	private void doeRegistreerTrekking() {
-		List<Integer> nummers;
-		String naam;
-
-		System.out.println("Registreer een nieuwe trekking.");
-		System.out.print("Geef de naam van de trekking > ");
-		naam = invoer.next();
-
-		nummers = invoerNummers();		
-
+		//SSD UC1 aflezen
+		String naam = geefNaam("Geef de naam van de trekking > ");
+		List<Integer> nummers = invoerNummers();
+		
 		dc.registreerTrekking(naam, nummers);
 
 		System.out.println("De trekking werd geregistreerd!");
 	}
 
 	private void doeControleerNummers() {
-		String naam;
+		//SSD UC2
 		List<Integer> nummers;
         int keuze;
 
-		System.out.print("Geef de naam van de trekking waarvoor je je nummers wil controleren > ");
-		naam = invoer.next();
+		String naam = geefNaam("Geef de naam van de trekking waarvoor je je nummers wil controleren > ");
 		dc.selecteerTrekking(naam);
 		
 		do {
-			System.out.printf("Geef jouw nummers in.%n");
+			System.out.println("Geef jouw nummers in.");
 
 			nummers = invoerNummers();
 			
 			System.out.printf("Met deze nummers win je %d Euro.%n", dc.geefWinst(nummers));
 			keuze = invoerNogControleren(); 
-		} while (keuze == 1);
+		} while (keuze == JA);
 	}
 }
