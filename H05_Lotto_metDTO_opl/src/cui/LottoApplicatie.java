@@ -13,6 +13,10 @@ public class LottoApplicatie {
 	private Scanner invoer = new Scanner(System.in);
 	private DomeinController dc; 
 	
+	private static final int REGISTREER = 1;
+	private static final int CONTROLE_NUMMERS = 2;
+	private static final int STOP = 3;
+	
 	public LottoApplicatie(DomeinController dc) {
 		this.dc = dc;
 	}	
@@ -20,11 +24,11 @@ public class LottoApplicatie {
 	public void startLotto()
 	{
 		int keuze = invoerKeuze();
-		while (keuze != 3)
+		while (keuze != STOP)
 		{
 			switch (keuze) {
-				case 1 -> doeRegistreerTrekking();
-				case 2 -> doeControleerNummers();
+				case REGISTREER -> doeRegistreerTrekking();
+				case CONTROLE_NUMMERS -> doeControleerNummers();
 			}
 			keuze = invoerKeuze();
 		}
@@ -41,7 +45,7 @@ public class LottoApplicatie {
 			System.out.println("3. Stoppen");
 			System.out.println("Maak je keuze > ");
 			keuze = invoer.nextInt();
-		} while (keuze < 1 || keuze > 3);
+		} while (keuze < 1 || keuze > STOP);
 	    return keuze;
     }
     
