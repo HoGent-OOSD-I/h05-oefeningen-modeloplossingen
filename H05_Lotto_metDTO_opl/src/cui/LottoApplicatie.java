@@ -11,10 +11,8 @@ import dto.TrekkingDTO;
 public class LottoApplicatie {
 	
 	private Scanner invoer = new Scanner(System.in);
-	// TODO: DomeinController toevoegen als attribuut
 	private DomeinController dc; 
 	
-	// TODO: constructor toevoegen
 	public LottoApplicatie(DomeinController dc) {
 		this.dc = dc;
 	}	
@@ -65,10 +63,9 @@ public class LottoApplicatie {
 		return LocalDate.of(jaar, maand, dag); 
 	}
     
-	private List invoerNummers()
+	private List<Integer> invoerNummers()
 	{
-		List nummers = new ArrayList<>();
-		// Aangepast: aantalNummers (6) uit domein halen
+		List<Integer> nummers = new ArrayList<>();
 		for (int teller = 1; teller <= dc.aantalNummers(); teller++) {
 			System.out.printf("Geef %d%s nummer in > ", teller, teller == 1 ? "ste" : "de");
 			nummers.add(invoer.nextInt());
@@ -93,9 +90,8 @@ public class LottoApplicatie {
 		
 		String naam = invoerTekst("Registreer een nieuwe trekking.\nGeef de naam van de trekking > ");
 		LocalDate datum = invoerDatum();
-		List nummers = invoerNummers();		
+		List<Integer> nummers = invoerNummers();		
 
-		// TODO: registreer trekking
 		dc.registreerTrekking(naam, datum, nummers);
 
 		System.out.println("De trekking werd geregistreerd!");
@@ -103,23 +99,20 @@ public class LottoApplicatie {
 
 	private void doeControleerNummers() {
 		String naam;
-		List nummers;
+		List<Integer> nummers;
         int keuze;
         
 		invoer.nextLine(); 	// buffer voor tekst inlezen NA getal
 
         naam = invoerTekst("Geef de naam van de trekking waarvoor je je nummers wil controleren > ");
-		// TODO: selecteer trekking
-        dc.selecteerTrekking(naam);
+	    dc.selecteerTrekking(naam);
 		
-        // TODO: vervang null door ophalen trekking uit dc  
-		TrekkingDTO trekking = dc.geefTrekking(); 
+    	TrekkingDTO trekking = dc.geefTrekking(); 
 		
 		if(trekking == null) 
 			System.out.println("Geen trekking gevonden");
 		else
 		{
-			// TODO: vervang "" door naam en datum uit DTO
 			System.out.printf("Trekking gevonden met %s en datum %s%n", 
 					trekking.naam(), trekking.datum());
 			
@@ -128,7 +121,6 @@ public class LottoApplicatie {
 
 				nummers = invoerNummers();
 				
-				// TODO: roep methode geefWinst uit dc op en ken waarde toe aan winst
 				int winst = dc.geefWinst(nummers);
 				System.out.printf("Met deze nummers win je %d Euro.%n", winst);
 				keuze = invoerNogControleren(); 
