@@ -11,18 +11,11 @@ public class TrekkingRepository {
 		//normaal komt de lijst van trekkingen uit de database
 	}
 
-	/**
-	 * 
-	 * @param trekking
-	 */
 	public void voegTrekkingToe(Trekking trekking) {
-		this.trekkingen.add(trekking);
+		if (geefTrekking(trekking.getNaam()) == null)
+			trekkingen.add(trekking);
 	}
 
-	/**
-	 * 
-	 * @param naam
-	 */
 	public Trekking geefTrekking(String naam) {
 		for(Trekking trek: this.trekkingen) {
 			if(trek.getNaam().equals(naam))
