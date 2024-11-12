@@ -10,6 +10,9 @@ public class PersonagesApplicatie
 {
 	private Scanner sc = new Scanner(System.in);
 	private DomeinController dc;
+	private static final int NIEUWE_CATEGORIE = 1;
+	private static final int NIEUWE_PERSONAGE = 2;
+	private static final int SELECTEER_PERSONAGE = 3;
 
 	public PersonagesApplicatie(DomeinController domeinController)
 	{
@@ -24,9 +27,9 @@ public class PersonagesApplicatie
 		{
 			switch (keuze)
 			{
-				case 1 -> maakCategorie();
-				case 2 -> maakPersonage();
-				case 3 -> selecteerPersonage();
+				case NIEUWE_CATEGORIE -> maakCategorie();
+				case NIEUWE_PERSONAGE -> maakPersonage();
+				case SELECTEER_PERSONAGE -> selecteerPersonage();
 			}
 			
 			keuze = maakKeuze();
@@ -130,14 +133,19 @@ public class PersonagesApplicatie
 	private void printDetailsPersonage(boolean isNieuwPersonage)
 	{
 		PersonageDTO personageDTO = dc.geefDetailsPersonage();
-		System.out.printf("\nJe %s dit personage:%n", isNieuwPersonage ?
+		if (personageDTO == null)
+			System.out.printf("%nGeen personage gevonden%n");
+		else
+		{
+			System.out.printf("%nJe %s dit personage:%n", isNieuwPersonage ?
 				"maakte" : "selecteerde");
 		
-		System.out.printf("- Naam: %s%n", personageDTO.naam());
-		System.out.println("- Categorie:");
-		System.out.printf("    - Omschrijving: %s%n", personageDTO.omschrijving());
-		System.out.printf("    - Kracht: %s%n", personageDTO.kracht());
-		System.out.printf("    - Snelheid: %s%n", personageDTO.snelheid());
-		System.out.printf("    - Lenigheid: %s%n%n", personageDTO.lenigheid());
+			System.out.printf("- Naam: %s%n", personageDTO.naam());
+			System.out.println("- Categorie:");
+			System.out.printf("    - Omschrijving: %s%n", personageDTO.omschrijving());
+			System.out.printf("    - Kracht: %s%n", personageDTO.kracht());
+			System.out.printf("    - Snelheid: %s%n", personageDTO.snelheid());
+			System.out.printf("    - Lenigheid: %s%n%n", personageDTO.lenigheid());
+		}
 	}
 }
