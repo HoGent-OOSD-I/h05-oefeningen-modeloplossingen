@@ -16,6 +16,10 @@ public class TrekkingRepository {
 			trekkingen.add(trekking);
 	}
 
+    public List<Trekking> getTrekkingen(){
+        return this.trekkingen;
+    }
+
 	public Trekking geefTrekking(String naam) {
 		for(Trekking trek: this.trekkingen) {
 			if(trek.getNaam().equals(naam))

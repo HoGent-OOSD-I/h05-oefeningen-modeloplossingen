@@ -1,6 +1,7 @@
 package domein;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import dto.TrekkingDTO;
@@ -18,14 +19,23 @@ public class DomeinController {
 		trekkingRepo.voegTrekkingToe(new Trekking(naam, datum, nummers));
 	}
 
+    public List<TrekkingDTO> geefAlleTrekkingen() {
+        List<Trekking> trekkingen = trekkingRepo.getTrekkingen();
+        List<TrekkingDTO> dtos = new ArrayList<>();
+
+        for(Trekking trekking: trekkingen) {
+            dtos.add(zetTrekkingOmNaarDTO(trekking));
+        }
+        return dtos;
+    }
+
 	public void selecteerTrekking(String naam) {
 		geselecteerdeTrekking = trekkingRepo.geefTrekking(naam);
 	}
 	
 	public TrekkingDTO geefTrekking() {
 		if(geselecteerdeTrekking != null)
-			return new TrekkingDTO(geselecteerdeTrekking.getNaam(), 
-					geselecteerdeTrekking.getDatum());
+			return zetTrekkingOmNaarDTO(geselecteerdeTrekking);
 		return null;
 	}
 
@@ -39,5 +49,8 @@ public class DomeinController {
 		return Trekking.AANTAL_NUMMERS;
 	}
 
+    private TrekkingDTO zetTrekkingOmNaarDTO(Trekking t){
+        return new TrekkingDTO(t.getNaam(), t.getDatum());
+    }
 }
 

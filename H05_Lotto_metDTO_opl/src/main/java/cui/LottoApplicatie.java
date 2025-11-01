@@ -105,6 +105,12 @@ public class LottoApplicatie {
 		String naam;
 		List<Integer> nummers;
         int keuze;
+
+        List<TrekkingDTO> trekkingDTOS = dc.geefAlleTrekkingen();
+        System.out.printf("Details trekkingen: \n%-10s %-10s%n", "Datum", "Naam");
+        for(TrekkingDTO trekkingDTO: trekkingDTOS){
+            System.out.printf("%10s:%-10s%n", trekkingDTO.datum(), trekkingDTO.naam());
+        }
         
 		invoer.nextLine(); 	// buffer voor tekst inlezen NA getal
 
@@ -117,7 +123,7 @@ public class LottoApplicatie {
 			System.out.println("Geen trekking gevonden");
 		else
 		{
-			System.out.printf("Trekking gevonden met %s en datum %s%n", 
+			System.out.printf("Trekking gevonden met naam '%s' en datum '%s%n'",
 					trekking.naam(), trekking.datum());
 			
 			do {
