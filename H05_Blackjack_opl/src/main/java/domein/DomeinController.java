@@ -10,7 +10,7 @@ public class DomeinController
 {
 	private Blackjack blackjack;
 
-	public void startBlackjack(BigDecimal inzet)
+	public void maakBlackjack(BigDecimal inzet)
 	{
 		blackjack = new Blackjack(inzet);
 	}

@@ -23,7 +23,7 @@ public class BlackjackApplicatie {
 
 		double inzet = invoerInzet();
 
-		dc.startBlackjack(new BigDecimal(inzet));
+		dc.maakBlackjack(new BigDecimal(inzet));
 
 		int antwoord;
 		
