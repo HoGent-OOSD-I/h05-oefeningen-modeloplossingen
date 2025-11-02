@@ -26,13 +26,11 @@ public class PersonageRepository
 		return null;
 	}
 
-	public boolean voegToe(Personage personage)
+	public void voegToe(Personage personage)
 	{
 		if (geefPersonage(personage.getNaam()) == null) {
 			personages.add(personage);	
-			return true;
 		}
-		return false; 
 	}
 
 }

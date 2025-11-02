@@ -2,10 +2,10 @@ package domein;
 
 public class Categorie
 {
-	private String omschrijving;
-	private int snelheid;
-	private int kracht;
-	private int lenigheid;
+	private String omschrijving = DEFAULT_OMSCHRIJVING;
+	private int snelheid = MIN_SNELHEID;
+	private int kracht = MIN_KRACHT;
+	private int lenigheid = MIN_LENINGHEID;
 
 	private static final String DEFAULT_OMSCHRIJVING = "anoniem";
 	private static final int MIN_SNELHEID = 1;
@@ -13,6 +13,7 @@ public class Categorie
 	private static final int MAX_KRACHT = 10;
 	private static final int MIN_LENINGHEID = 1;
 	private static final int MAX_LENINGHEID = 5;
+    private static final int MIN_LENGTE_OMSCHRIJVING = 100;
 	
 	public Categorie(String omschrijving, int snelheid, int kracht, int lenigheid)
 	{
@@ -29,9 +30,8 @@ public class Categorie
 
 	private void setOmschrijving(String omschrijving)
 	{
-		this.omschrijving = (omschrijving == null || omschrijving.isBlank() || omschrijving.length() > 100)?
-				DEFAULT_OMSCHRIJVING: omschrijving;
-			
+        if(omschrijving != null && !omschrijving.isBlank() && omschrijving.length() <= MIN_LENGTE_OMSCHRIJVING) // geen spaties controleer je voorlopig alleen in de applicatie.
+            this.omschrijving = omschrijving;
 	}
 
 	public int getSnelheid()
@@ -41,7 +41,8 @@ public class Categorie
 
 	private void setSnelheid(int snelheid)
 	{
-		this.snelheid = (snelheid < MIN_SNELHEID)? MIN_SNELHEID: snelheid;
+        if(snelheid >= MIN_SNELHEID)
+		    this.snelheid = snelheid;
 	}
 
 	public int getKracht()
@@ -51,7 +52,8 @@ public class Categorie
 
 	private void setKracht(int kracht)
 	{
-		this.kracht = (kracht < MIN_KRACHT || kracht > MAX_KRACHT)? MIN_KRACHT: kracht;
+        if(kracht >= MIN_KRACHT && kracht <= MAX_KRACHT)
+		    this.kracht = kracht;
 	}
 
 	public int getLenigheid()
@@ -61,6 +63,7 @@ public class Categorie
 
 	private void setLenigheid(int lenigheid)
 	{
-		this.lenigheid = (lenigheid < MIN_LENINGHEID || lenigheid > MAX_LENINGHEID)? MIN_LENINGHEID: lenigheid;
+        if(lenigheid >= MIN_LENINGHEID && lenigheid <= MAX_LENINGHEID)
+		    this.lenigheid = lenigheid;
 	}
 }

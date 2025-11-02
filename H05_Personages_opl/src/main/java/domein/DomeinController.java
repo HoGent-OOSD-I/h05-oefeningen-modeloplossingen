@@ -3,6 +3,7 @@ package domein;
 import java.util.ArrayList;
 import java.util.List;
 
+import dto.CategorieDTO;
 import dto.PersonageDTO;
 
 public class DomeinController
@@ -38,19 +39,13 @@ public class DomeinController
 		
 	}
 		
-	public List<PersonageDTO> geefPersonages()
+	public List<String> geefPersonages()
 	{
-		List<Personage> personagesLijst = personageRepo.getPersonages();
-		
-		List<PersonageDTO> personages = new ArrayList<>();
+		List<String> personages = new ArrayList<>();
 				
-		for (Personage p : personagesLijst)
+		for (Personage p : personageRepo.getPersonages())
 		{
-			Categorie personageCat = p.getCategorie();
-			PersonageDTO personageDTO = 
-					new PersonageDTO(p.getNaam(), personageCat.getOmschrijving());
-			
-			personages.add(personageDTO);
+			personages.add(p.getNaam());
 		}
 		
 		return personages;
@@ -61,12 +56,12 @@ public class DomeinController
 		huidigPersonage = personageRepo.geefPersonage(naam);
 	}
 
-	public List<String> geefCategorieen()
+	public List<CategorieDTO> geefCategorieen()
 	{
-		List<String> categorieen = new ArrayList<>();
+		List<CategorieDTO> categorieen = new ArrayList<>();
 		
 		for (Categorie c : categorieRepo.getCategorieen())
-			categorieen.add(c.getOmschrijving());
+			categorieen.add(new CategorieDTO(c.getOmschrijving(), c.getSnelheid(), c.getKracht(), c.getLenigheid()));
 		
 		return categorieen;
 	}
@@ -81,9 +76,6 @@ public class DomeinController
 		if (huidigeCategorie != null)
 		{
 			Personage personage = new Personage(naam, huidigeCategorie);
-			boolean toegevoegd = personageRepo.voegToe(personage);
-		    if (toegevoegd)
-		    	huidigPersonage = personage;
 		}
 	}
 
