@@ -5,59 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f251ddec-b26d-4cb4-a653-84cb9450e231" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../H05_Blackjack_opl/vpproject/H05_Blackjack_opl.vpp.vbak" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../H05_HogerLager_opl/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../H05_HogerLager_opl/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../H05_HogerLager_opl/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../H05_HogerLager_opl/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../H05_HogerLager_opl/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../H05_HogerLager_opl/vpproject/.H05_HogerLager_opl.vpp.lck" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OOSD1_H5_Blackjack.ppsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OOSD1_H5_Blackjack.pptx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OOSD1_H5_HogerLager.ppsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OOSD1_H5_HogerLager.pptx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OOSD1_H5_Personages.ppsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OOSD1_H5_Personages.pptx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../zips/H05_HogerLager_zonderDTO_opl.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../zips/H05_Lotto_zonderDTO_opl.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_Blackjack_opl/vpproject/H05_Blackjack_opl.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/../H05_Blackjack_opl/vpproject/H05_Blackjack_opl.vpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_metDTO_opl/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_metDTO_opl/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../ArchiefOudeBestanden/H05_HogerLager_opl/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_metDTO_opl/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_metDTO_opl/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_metDTO_opl/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_metDTO_opl/src/cui/HogerLagerApplicatie.java" beforeDir="false" afterPath="$PROJECT_DIR$/../H05_HogerLager_opl/src/main/java/cui/HogerLagerApplicatie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_metDTO_opl/src/domein/DomeinController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../H05_HogerLager_opl/src/main/java/domein/DomeinController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_metDTO_opl/src/domein/HogerLager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../H05_HogerLager_opl/src/main/java/domein/HogerLager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_metDTO_opl/src/domein/Kaart.java" beforeDir="false" afterPath="$PROJECT_DIR$/../H05_HogerLager_opl/src/main/java/domein/Kaart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_metDTO_opl/src/dto/KaartDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../H05_HogerLager_opl/src/main/java/dto/KaartDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_metDTO_opl/src/main/StartUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ArchiefOudeBestanden/H05_HogerLager_opl/src/main/StartUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_metDTO_opl/vpproject/H05_HogerLager.vpp.bak_000f" beforeDir="false" afterPath="$PROJECT_DIR$/../ArchiefOudeBestanden/H05_HogerLager_opl/vpproject/H05_HogerLager_opl.vpp.vbak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_metDTO_opl/vpproject/H05_HogerLager.vpp.bak_001d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_metDTO_opl/vpproject/H05_HogerLager.vpp.vbak" beforeDir="false" afterPath="$PROJECT_DIR$/../ArchiefOudeBestanden/H05_HogerLager_opl/vpproject/H05_HogerLager_opl.vpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_metDTO_opl/vpproject/H05_HogerLager.vpp.vbak~1" beforeDir="false" afterPath="$PROJECT_DIR$/../H05_HogerLager_opl/vpproject/H05_HogerLager_opl.vpp.vbak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_metDTO_opl/vpproject/H05_HogerLager_metDTO_opl.vpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_metDTO_opl/vpproject/H05_HogerLager_metDTO_opl.vpp.bak_000f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_metDTO_opl/vpproject/H05_HogerLager_opl.vpp.bak_000f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_metDTO_opl/vpproject/diagrams/DCD domein.vpclassd" beforeDir="false" afterPath="$PROJECT_DIR$/../ArchiefOudeBestanden/H05_HogerLager_opl/vpproject/diagrams/DCD domein.vpclassd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_metDTO_opl/vpproject/diagrams/packages.vppackd" beforeDir="false" afterPath="$PROJECT_DIR$/../ArchiefOudeBestanden/H05_HogerLager_opl/vpproject/diagrams/packages.vppackd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_opl/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_opl/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../H05_HogerLager_opl/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_opl/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_opl/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_opl/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_opl/src/cui/HogerLagerApplicatie.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ArchiefOudeBestanden/H05_HogerLager_opl/src/cui/HogerLagerApplicatie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_opl/src/domein/DomeinController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ArchiefOudeBestanden/H05_HogerLager_opl/src/domein/DomeinController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_opl/src/domein/HogerLager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ArchiefOudeBestanden/H05_HogerLager_opl/src/domein/HogerLager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_opl/src/domein/Kaart.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ArchiefOudeBestanden/H05_HogerLager_opl/src/domein/Kaart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_opl/src/main/StartUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../H05_HogerLager_opl/src/main/java/main/StartUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_opl/vpproject/H05_HogerLager_opl.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/../H05_HogerLager_opl/vpproject/H05_HogerLager_opl.vpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_opl/vpproject/H05_HogerLager_opl.vpp~1" beforeDir="false" afterPath="$PROJECT_DIR$/../ArchiefOudeBestanden/H05_HogerLager_opl/vpproject/H05_HogerLager_opl.vpp~1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_opl/vpproject/diagrams/domein.vpclassd" beforeDir="false" afterPath="$PROJECT_DIR$/../ArchiefOudeBestanden/H05_HogerLager_opl/vpproject/diagrams/domein.vpclassd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_HogerLager_opl/vpproject/diagrams/domein1.vpclassd" beforeDir="false" afterPath="$PROJECT_DIR$/../ArchiefOudeBestanden/H05_HogerLager_opl/vpproject/diagrams/domein1.vpclassd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_Lotto_opl/vpproject/H05_Lotto_opl.vpp.bak_000f" beforeDir="false" afterPath="$PROJECT_DIR$/../H05_Personages_opl/vpproject/H05_Personages_opl.vpp.vbak~1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../H05_Personages_opl/vpproject/H05_Personages_opl.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/../H05_Personages_opl/vpproject/H05_Personages_opl.vpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../H05_Blackjack_opl/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../H05_Blackjack_opl/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../H05_Blackjack_opl/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../H05_Blackjack_opl/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../H05_Jackpot_opl/src/main/java/cui/JackpotApplicatie.java" beforeDir="false" afterPath="$PROJECT_DIR$/../H05_Jackpot_opl/src/main/java/cui/JackpotApplicatie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../H05_Personages_opl/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../H05_Personages_opl/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../H05_Personages_opl/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../H05_Personages_opl/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,21 +44,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.StartUp.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.StartUp.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "two.files.diff.last.used.file": "C:/Users/fspr805/Downloads/LottoApplicatie.java",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="StartUp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.StartUp" />
@@ -141,6 +98,7 @@
       <workItem from="1762000450571" duration="151000" />
       <workItem from="1762000741449" duration="3858000" />
       <workItem from="1762008703062" duration="11000" />
+      <workItem from="1762098582967" duration="95000" />
     </task>
     <servers />
   </component>
