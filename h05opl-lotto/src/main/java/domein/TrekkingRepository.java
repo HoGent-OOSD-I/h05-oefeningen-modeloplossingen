@@ -12,8 +12,9 @@ public class TrekkingRepository {
 	}
 
 	public void voegTrekkingToe(Trekking trekking) {
-		if (geefTrekking(trekking.getNaam()) == null)
-			trekkingen.add(trekking);
+		if (geefTrekking(trekking.getNaam()) != null)
+            throw new IllegalArgumentException("Naam van de trekking bestaat al!");
+        trekkingen.add(trekking);
 	}
 
     public List<Trekking> getTrekkingen(){

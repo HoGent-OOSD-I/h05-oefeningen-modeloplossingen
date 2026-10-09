@@ -33,19 +33,19 @@ public class DomeinController {
 		geselecteerdeTrekking = trekkingRepo.geefTrekking(naam);
 	}
 	
-	public TrekkingDTO geefTrekking() {
-		if(geselecteerdeTrekking != null)
-			return zetTrekkingOmNaarDTO(geselecteerdeTrekking);
-		return null;
+	public TrekkingDTO geefDetailsGeseleteerdeTrekking() {
+        if (geselecteerdeTrekking == null)
+            throw new IllegalArgumentException("Geen (geldige) trekking geselecteerd!");
+        return zetTrekkingOmNaarDTO(geselecteerdeTrekking);
 	}
 
 	public int geefWinst(List<Integer> nummers) {
 		if (geselecteerdeTrekking == null)
-			return 0;
+			throw new IllegalArgumentException("Geen (geldige) trekking geselecteerd!");
 		return geselecteerdeTrekking.geefWinst(nummers);
 	}
 
-	public int aantalNummers() {
+	public int geefAantalNummers() {
 		return Trekking.AANTAL_NUMMERS;
 	}
 
