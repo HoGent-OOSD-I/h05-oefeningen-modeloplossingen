@@ -1,7 +1,7 @@
 package cui;
 
 import java.util.List;
-import java.util.Scanner;
+
 import domein.DomeinController;
 
 public class JackpotApplicatie {
@@ -16,7 +16,7 @@ public class JackpotApplicatie {
 	public void startJackpotspel() {
 		dc.startNieuweJackpot();
 
-		uitvoerGetallen(dc.geefGetallenWielen());
+		uitvoerGetallen(dc.geefGetallen());
 
 		int verderSpelen = invoerKeuze();
 
@@ -24,7 +24,7 @@ public class JackpotApplicatie {
 
 			dc.speel();
 
-			uitvoerGetallen(dc.geefGetallenWielen());
+			uitvoerGetallen(dc.geefGetallen());
 
 			IO.println(String.format("De score is %d", dc.geefScore()));
 

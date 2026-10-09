@@ -10,8 +10,8 @@ public class DomeinController {
 		this.jackpot = new Jackpot();
 	}
 
-	public List<Integer> geefGetallenWielen() {
-		return jackpot.geefGetallenWielen();
+	public List<Integer> geefGetallen() {
+		return jackpot.geefGetallen();
 	}
 
 	public void speel() {

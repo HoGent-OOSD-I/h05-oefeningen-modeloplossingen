@@ -9,14 +9,13 @@ public class Jackpot {
     private final int AANTAL_WIELEN = 3;
     
 	public Jackpot() {
-		 
 		wielen = new ArrayList<>();		
 
 		for(int teller = 1; teller<= AANTAL_WIELEN; teller++)
 			wielen.add(new Wiel());
 	}
 
-	public List<Integer> geefGetallenWielen() {
+	public List<Integer> geefGetallen() {
 		List<Integer> getallenWielen = new ArrayList<>();
 		
 		for ( Wiel wiel  : wielen  ) {
@@ -33,11 +32,10 @@ public class Jackpot {
 	}
 	
 	public int geefScore() {
-		
 		int aantal = 0;
 		
-		List<Integer> wielwaarden = geefGetallenWielen();
-		wielwaarden.sort(null);
+		List<Integer> wielwaarden = geefGetallen();
+		wielwaarden.sort(null);     // sorteer de getallen van klein naar groot
 		
 		int vorig = -1;
 		for (int waarde: wielwaarden) {

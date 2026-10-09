@@ -3,7 +3,6 @@ package domein;
 import java.security.SecureRandom;
 
 public class Wiel {
-
 	private int getal;
 	private SecureRandom sr;
 	
@@ -16,7 +15,7 @@ public class Wiel {
 	}
 
 	public void draai() {
-		getal =sr.nextInt(10);
+		getal = sr.nextInt(10);
 	}	
 	
 }
