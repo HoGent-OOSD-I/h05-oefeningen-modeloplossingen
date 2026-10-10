@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f251ddec-b26d-4cb4-a653-84cb9450e231" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../h05opl-focusoefeningen-Jackpot/vpproject/.H05_Jackpot_opl.vpp.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="f251ddec-b26d-4cb4-a653-84cb9450e231" name="Changes" comment="26-27: update Lotto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cui/LottoApplicatie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cui/LottoApplicatie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domein/DomeinController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domein/DomeinController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/domein/Trekking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domein/Trekking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domein/TrekkingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domein/TrekkingRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/StartUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/StartUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vpproject/H05_Lotto_opl.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/vpproject/H05_Lotto_opl.vpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,11 +98,35 @@
       <workItem from="1762000741449" duration="3858000" />
       <workItem from="1762008703062" duration="11000" />
       <workItem from="1762098582967" duration="95000" />
-      <workItem from="1791557340383" duration="2196000" />
+      <workItem from="1791557340383" duration="5298000" />
     </task>
+    <task id="LOCAL-00001" summary="26-27: update Lotto">
+      <option name="closed" value="true" />
+      <created>1791559613701</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1791559613701</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="26-27: update Lotto" />
+    <option name="LAST_COMMIT_MESSAGE" value="26-27: update Lotto" />
   </component>
 </project>

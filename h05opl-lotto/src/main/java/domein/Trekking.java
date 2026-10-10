@@ -17,16 +17,16 @@ public class Trekking {
     public Trekking(String naam, LocalDate datum, List<Integer> nummers) {
 		this.naam = naam;
 		this.datum = datum;
-		// GEEN CONTROLE UNIEKE NUMMERS, nog niet alles geleerd om dit op te lossen
-        controleerNummers(nummers);
-		this.nummers = new ArrayList<>(nummers);
+        setNummers(nummers);
 	}
 
-    private void controleerNummers(List<Integer> nummers) {
+    private void setNummers(List<Integer> nummers) {
+        // GEEN CONTROLE UNIEKE NUMMERS, nog niet alles geleerd om dit op te lossen
         for(int nummer: nummers){
             if(nummer < MIN_NUMMER || nummer > MAX_NUMMER )
                 throw new IllegalArgumentException("Nummer buiten grenzen ingegeven!");
         }
+        this.nummers = new ArrayList<>(nummers);
     }
 
     public String getNaam() {
