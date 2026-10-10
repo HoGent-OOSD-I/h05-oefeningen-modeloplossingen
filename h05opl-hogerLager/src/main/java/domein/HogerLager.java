@@ -39,12 +39,10 @@ public class HogerLager {
 		return this.huidigeKaart;
 	}
 
-	public void raadHogerLager(boolean hogerLager)
-	{
+	public void raadHogerLager(boolean hogerLager) {
 		int waardeVorig = huidigeKaart.getWaarde();
 
-        if (trekstapel.isEmpty())
-        {
+        if (trekstapel.isEmpty()) {
         	correctGeraden = false;
         	return;
         }

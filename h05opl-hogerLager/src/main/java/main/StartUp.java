@@ -5,7 +5,7 @@ import domein.DomeinController;
 
 public class StartUp {
 
-	public static void main(String[] args) {
+	void main() {
 		HogerLagerApplicatie hogerLagerApp = 
 				new HogerLagerApplicatie(new DomeinController());
 		hogerLagerApp.startHogerLagerSpel();

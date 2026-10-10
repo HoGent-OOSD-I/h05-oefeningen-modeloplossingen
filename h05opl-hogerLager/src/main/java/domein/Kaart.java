@@ -1,12 +1,10 @@
 package domein;
 
-public class Kaart
-{
+public class Kaart {
 	private int waarde;
 	private String kleur;
 
-	public Kaart(int waarde, String kleur)
-	{
+	public Kaart(int waarde, String kleur) {
 		this.waarde = waarde;
 		this.kleur = kleur;
 	}
