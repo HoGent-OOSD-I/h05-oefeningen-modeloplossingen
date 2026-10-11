@@ -5,7 +5,7 @@ import domein.DomeinController;
 
 public class StartUp {
 
-	public static void main(String[] args) {
+	void main() {
 		BlackjackApplicatie blackjackApp = new BlackjackApplicatie(new DomeinController());
 		blackjackApp.startBlackjack();
 	}

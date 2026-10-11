@@ -6,17 +6,14 @@ import java.util.List;
 
 import dto.KaartDTO;
 
-public class DomeinController
-{
+public class DomeinController {
 	private Blackjack blackjack;
 
-	public void maakBlackjack(BigDecimal inzet)
-	{
+	public void maakBlackjack(BigDecimal inzet) {
 		blackjack = new Blackjack(inzet);
 	}
 
-	public List<KaartDTO> geefSpeelbord()
-	{
+	public List<KaartDTO> geefSpeelbord() {
 		List<Kaart> kaarten = blackjack.getSpeelbord();
 		List<KaartDTO> speelbord = new ArrayList<>();
 		
@@ -26,23 +23,19 @@ public class DomeinController
 		return speelbord;
 	}
 
-	public int geefPunten()
-	{
+	public int geefPunten() {
 		return blackjack.geefPunten();
 	}
 
-	public void neemKaart()
-	{
+	public void neemKaart() {
 		blackjack.neemKaart();
 	}
 
-	public boolean isEindeBlackjack()
-	{
+	public boolean isEindeBlackjack() {
 		return blackjack.isEindeBlackjack();
 	}
 	
-	public BigDecimal geefWinst()
-	{
+	public BigDecimal geefWinst() {
 		return blackjack.geefWinst();
 	}
 }

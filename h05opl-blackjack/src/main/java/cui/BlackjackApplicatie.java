@@ -2,24 +2,20 @@ package cui;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Scanner;
 
 import domein.DomeinController;
 import dto.KaartDTO;
 
 public class BlackjackApplicatie {
 	
-	private Scanner invoer = new Scanner(System.in);
 	private DomeinController dc;
-
-	private static final int JA = 1;
 	
 	public BlackjackApplicatie(DomeinController domeinController) {
 		dc = domeinController;
 	}
 
 	public void startBlackjack() {
-		System.out.println("We spelen vandaag Blackjack!");
+		IO.println("We spelen vandaag Blackjack!");
 
 		double inzet = invoerInzet();
 
@@ -29,25 +25,26 @@ public class BlackjackApplicatie {
 		
 		toonSpeelbord();
 		toonPunten();
-		
-		do {
-			antwoord = invoerAntwoord();
 
-			if (antwoord == JA) {
-				dc.neemKaart();
-				toonSpeelbord();
-				toonPunten();
-			}
-		} while (antwoord == JA && !dc.isEindeBlackjack());
-		
-		System.out.printf("Je hebt %.2f euro gewonnen!", dc.geefWinst().doubleValue());
+        antwoord = invoerAntwoord();
+
+        while(antwoord != 0 && !dc.isEindeBlackjack()) {
+            dc.neemKaart();
+            toonSpeelbord();
+            toonPunten();
+
+            if(!dc.isEindeBlackjack())
+                antwoord = invoerAntwoord();
+        }
+
+        BigDecimal winst = dc.geefWinst();   // TODO vervang null, haal hier de effectieve winst op.
+        IO.println(String.format("Je hebt %.2f euro gewonnen!", winst.doubleValue()));
 	}
 
 	private double invoerInzet() {
 		double inzet;
 		do {
-			System.out.print("Hoeveel bedraagt je inzet in euro? (>0)");
-			inzet = invoer.nextDouble();
+			inzet = Double.parseDouble(IO.readln("Hoeveel bedraagt je inzet in euro? (>0): "));
 		} while (inzet <= 0);
 		return inzet;
 	}
@@ -55,19 +52,18 @@ public class BlackjackApplicatie {
 	private void toonSpeelbord() {
 		List<KaartDTO> kaarten = dc.geefSpeelbord();
 		for (KaartDTO kaart : kaarten)
-			System.out.printf("Deze kaart is een %s %s%n", kaart.kleur(), kaart.waarde());
+			IO.println(String.format("Deze kaart is een %s %s", kaart.kleur(), kaart.waarde()));
 	}
 
 	private void toonPunten() {
 		int punten = dc.geefPunten();
-		System.out.printf("Je hebt tot nu toe %d punten%n", punten);
+		IO.println(String.format("Je hebt tot nu toe %d punten", punten));
 	}
 
 	private int invoerAntwoord() {
 		int antwoord;
 		do {
-			System.out.print("Wil je nog een kaart? Typ 0 voor nee en 1 voor ja: ");
-			antwoord = invoer.nextInt();
+            antwoord = Integer.parseInt(IO.readln("Wil je nog een kaart? Typ 0 voor nee en 1 voor ja: "));
 		} while (antwoord < 0 || antwoord > 1);
 		return antwoord;
 	}

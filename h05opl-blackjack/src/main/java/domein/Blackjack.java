@@ -42,16 +42,16 @@ public class Blackjack {
 	public int geefPunten() {
         int punten = 0;
         for(Kaart k : speelbord)
-                punten+= k.geefBlackjackWaarde();
-        if(punten > BLACKJACK_WAARDE)
-        {
-                for(Kaart k : speelbord)
-                {
-                        if(k.geefBlackjackWaarde() == Kaart.AAS_WAARDE)
-                                punten -=10;
-                        if(punten <= BLACKJACK_WAARDE)
-                                return punten;
-                }
+            punten+= k.geefBlackjackWaarde();
+
+        // Aas is geen 11 waard, maar 1 wanneer 21 wordt overschreden:
+        if(punten > BLACKJACK_WAARDE) {
+            for(Kaart k : speelbord) {
+                if(k.geefBlackjackWaarde() == Kaart.AAS_WAARDE)
+                    punten -=10;
+                if(punten <= BLACKJACK_WAARDE)
+                    return punten;
+            }
         }
         return punten;        
     }
