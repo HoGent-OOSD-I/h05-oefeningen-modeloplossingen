@@ -3,22 +3,18 @@ package domein;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersonageRepository
-{
+public class PersonageRepository {
 	private List<Personage> personages;
 	
-	public PersonageRepository()
-	{
+	public PersonageRepository() {
 		personages = new ArrayList<>();
 	}
 	
-	public List<Personage> getPersonages()
-	{
+	public List<Personage> getPersonages() {
 		return personages;
 	}
 	
-	public Personage geefPersonage(String naam)
-	{
+	public Personage geefPersonage(String naam) {
 		for (Personage p : personages)
 			if (p.getNaam().equals(naam))
 				return p;
@@ -26,11 +22,12 @@ public class PersonageRepository
 		return null;
 	}
 
-	public void voegToe(Personage personage)
-	{
-		if (geefPersonage(personage.getNaam()) == null) {
-			personages.add(personage);	
-		}
+	public void voegToe(Personage personage) {
+		if (geefPersonage(personage.getNaam()) != null)
+            throw new IllegalArgumentException("Naam van personage moet uniek zijn! ");
+
+        personages.add(personage);
+
 	}
 
 }

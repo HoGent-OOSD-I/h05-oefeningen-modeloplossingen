@@ -1,5 +1,4 @@
 package dto;
 
-public record PersonageDTO(String naam, String omschrijving, 
-		int kracht, int snelheid, int lenigheid) {
+public record PersonageDTO(String naam, CategorieDTO categorie) {   // categorie mag geen domeinklasse zijn! Moet ook een DTO zijn
 }

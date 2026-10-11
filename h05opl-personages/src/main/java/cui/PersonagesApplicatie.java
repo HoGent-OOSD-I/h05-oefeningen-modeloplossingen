@@ -1,96 +1,78 @@
 package cui;
 
 import java.util.List;
-import java.util.Scanner;
 
 import domein.DomeinController;
 import dto.CategorieDTO;
 import dto.PersonageDTO;
 
-public class PersonagesApplicatie
-{
-	private Scanner sc = new Scanner(System.in);
+public class PersonagesApplicatie {
 	private DomeinController dc;
 	private static final int NIEUWE_CATEGORIE = 1;
 	private static final int NIEUWE_PERSONAGE = 2;
 	private static final int SELECTEER_PERSONAGE = 3;
 
-	public PersonagesApplicatie(DomeinController domeinController)
-	{
+	public PersonagesApplicatie(DomeinController domeinController) {
 		dc = domeinController;
 	}
 
-	public void start()
-	{		
-		int keuze = maakKeuze();
+	public void start() {
+        String[] menu =  {"Afsluiten", "Maak een nieuwe categorie", "Maak een nieuw personage", "Selecteer een personage"};
+		int keuze = maakKeuze(menu);
 		
-		while (keuze != 0)
-		{
-			switch (keuze)
-			{
+		while (keuze != 0) {
+			switch (keuze) {
 				case NIEUWE_CATEGORIE -> maakCategorie();
 				case NIEUWE_PERSONAGE -> maakPersonage();
 				case SELECTEER_PERSONAGE -> selecteerPersonage();
 			}
 			
-			keuze = maakKeuze();
+			keuze = maakKeuze(menu);
 		}
 	}
 	
-	private int maakKeuze()
-	{
-		System.out.println("MENU\n====");
-		System.out.println("0. Afsluiten");
-		System.out.println("1. Maak een nieuwe categorie");
-		System.out.println("2. Maak een nieuw personage");
-		System.out.println("3. Selecteer een personage");
+	private int maakKeuze(String[] menu) {
+		IO.println("MENU\n====");
+		int i = 0; 
+        for(String menuItem: menu){
+            IO.println(String.format("%d. %s", i++, menuItem));
+        }
 
-        return leesGeheelGetalTussenGrenzen("Maak een keuze: ", 0, 3);
+        return leesGeheelGetalTussenGrenzen("Maak een keuze: ", 0, menu.length-1);
     }
 
     private int leesGeheelGetalTussenGrenzen(String instructie, int ondergrensIncl, int bovengrensIncl) {
         int keuze;
         boolean isJuist;
 
-        do
-        {
-            System.out.print(instructie);
-            keuze = sc.nextInt();
+        do {
+            keuze = Integer.parseInt(IO.readln(instructie));
             isJuist = keuze >= ondergrensIncl && keuze <= bovengrensIncl;
             if(!isJuist)
-                System.out.println("Ongeldige keuze! Probeer opnieuw!");
+                IO.println("Ongeldige keuze! Probeer opnieuw!");
         }while (!isJuist);
 
         return keuze;
     }
 
-    private void maakCategorie()
-	{
-		System.out.println("\nGeef de informatie voor de nieuwe categorie:");
+    private void maakCategorie() {
+		IO.println("\nGeef de informatie voor de nieuwe categorie:");
 
-		System.out.print("- omschrijving (alleen letters, geen spaties!): ");
-		String omschrijving = sc.next();
-
-		System.out.print("- kracht (in interval [1, 10]): ");
-		int kracht = sc.nextInt();
-		
-		System.out.print("- snelheid (> 0): ");
-		int snelheid = sc.nextInt();
-
-		System.out.print("- leningheid (in interval [1, 5]): ");
-		int lenigheid = sc.nextInt();
+		String omschrijving = IO.readln("- omschrijving (verplicht, max 100 karakters): ");
+		int kracht = Integer.parseInt(IO.readln("- kracht (in interval [1, 10]): "));
+		int snelheid = Integer.parseInt(IO.readln("- snelheid (> 0): "));
+		int lenigheid = Integer.parseInt(IO.readln("- leningheid (in interval [1, 5]): "));
 		
 		dc.maakCategorie(omschrijving, snelheid, kracht, lenigheid);
 
-        System.out.println("Categorie aangemaakt! \n");
+        IO.println("Categorie aangemaakt! \n");
 	}
 	
-	private void maakPersonage()
-	{
+	private void maakPersonage() {
 		List<CategorieDTO> categorieen = dc.geefCategorieen();
 
         if(categorieen.isEmpty()){
-            System.out.println("Er zijn categorieën momenteel, wil je eerst een categorie aanmaken?");
+            IO.println("Er zijn geen categorieën momenteel, wil je eerst een categorie aanmaken?");
             boolean nieuwAanmaken = leesGeheelGetalTussenGrenzen("Ja (1) of nee (0)? ", 0, 1) == 1;
             if(nieuwAanmaken) {
                 maakCategorie();
@@ -99,31 +81,29 @@ public class PersonagesApplicatie
             else return;        // methode eindigen zonder personage aan te maken
         }
 
-        System.out.println("\nCATEGORIEEN\n===========");
-        System.out.printf("%15s %10s %10s %10s%n",  "Omschrijving", "Kracht", "Snelheid", "Lenigheid");
+        IO.println("\nCATEGORIEEN\n===========");
+        IO.println(String.format("%15s %10s %10s %10s",  "Omschrijving", "Kracht", "Snelheid", "Lenigheid"));
         int i = 1;
 		for (CategorieDTO categorie:categorieen)
-            System.out.printf("%d. %12s %10s %10s %10s%n", i++ , categorie.omschrijving(), categorie.kracht(), categorie.snelheid(), categorie.lenigheid());
+            IO.println(String.format("%d. %12s %10s %10s %10s", i++ , categorie.omschrijving(), categorie.kracht(), categorie.snelheid(), categorie.lenigheid()));
 
         int categorieIndex = leesGeheelGetalTussenGrenzen("Kies een categorie: ", 1, categorieen.size());
         categorieIndex--; // omzetten naar index startend vanaf 0
 
 		dc.selecteerCategorie(categorieen.get(categorieIndex).omschrijving());
-		
-		System.out.print("\nGeef een naam voor het personage (alleen letters, geen spaties!): ");
-		String naam = sc.next();
+        
+		String naam = IO.readln("\nGeef een naam voor het personage (verplicht, tussen 3 en 50 tekens!): ");
 		
 		dc.registreerPersonage(naam);
 
-        System.out.println("Personage aangemaakt! \n");
+        IO.println("Personage aangemaakt! \n");
 	}
 	
-	private void selecteerPersonage()
-	{
+	private void selecteerPersonage() {
         List<String> personages = dc.geefPersonages();
 
         if(personages.isEmpty()){
-            System.out.println("Er zijn personages momenteel, wil je eerst een personage aanmaken?");
+            IO.println("Er zijn geen personages momenteel, wil je eerst een personage aanmaken?");
             boolean nieuwAanmaken = leesGeheelGetalTussenGrenzen("Ja (1) of nee (0)? ", 0, 1) == 1;
             if(nieuwAanmaken) {
                 maakPersonage();
@@ -132,41 +112,39 @@ public class PersonagesApplicatie
             else return;        // methode eindigen zonder personage aan te maken
         }
 
-        System.out.println("\nPERSONAGES\n===========");
+        IO.println("\nPERSONAGES\n===========");
 
 		int i = 1;
 		for (String personage:personages)
-			System.out.printf("%d. %s %n", i++, personage);
+			IO.println(String.format("%d. %s", i++, personage));
 		
-		System.out.printf("%d. Maak een nieuw personage%n%n", personages.size() + 1);
+		IO.println(String.format("%d. Maak een nieuw personage%n", personages.size() + 1));
 
 		int personageIndex = leesGeheelGetalTussenGrenzen("Kies een Personage: ", 1, personages.size()+1);
         personageIndex--; // omzetten naar index startend vanaf 0
 
 		if (personageIndex == personages.size())
 			maakPersonage();
-		else
-		{
+		else {
 			dc.selecteerPersonage(personages.get(personageIndex));
 			printDetailsPersonage();
 		}
 	}
 	
-	private void printDetailsPersonage()
-	{
+	private void printDetailsPersonage() {
 		PersonageDTO personageDTO = dc.geefDetailsPersonage();
 		if (personageDTO == null)
-			System.out.printf("%nGeen personage gevonden%n");
-		else
-		{
-			System.out.println("\nJe selecteerde dit personage:");
+			IO.println("\nGeen personage gevonden");
+		else {
+            CategorieDTO categorieDTO = personageDTO.categorie();
+			IO.println("\nJe selecteerde dit personage:");
 		
-			System.out.printf("- Naam: %s%n", personageDTO.naam());
-			System.out.println("- Categorie:");
-			System.out.printf("    - Omschrijving: %s%n", personageDTO.omschrijving());
-			System.out.printf("    - Kracht: %s%n", personageDTO.kracht());
-			System.out.printf("    - Snelheid: %s%n", personageDTO.snelheid());
-			System.out.printf("    - Lenigheid: %s%n%n", personageDTO.lenigheid());
+			IO.println(String.format("- Naam: %s", personageDTO.naam()));
+			IO.println("- Categorie:");
+			IO.println(String.format("\t - Omschrijving: %s", categorieDTO.omschrijving()));
+			IO.println(String.format("\t - Kracht: %s", categorieDTO.kracht()));
+			IO.println(String.format("\t - Snelheid: %s", categorieDTO.snelheid()));
+			IO.println(String.format("\t - Lenigheid: %s%n", categorieDTO.lenigheid()));
 		}
 	}
 }

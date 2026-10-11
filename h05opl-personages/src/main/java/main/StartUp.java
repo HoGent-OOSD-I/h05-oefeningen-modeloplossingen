@@ -5,10 +5,8 @@ import domein.DomeinController;
 
 public class StartUp {
 
-	public static void main(String[] args)
-	{
-		PersonagesApplicatie personagesApplicatie = 
-				new PersonagesApplicatie(new DomeinController());
+	void main()	{
+		PersonagesApplicatie personagesApplicatie = new PersonagesApplicatie(new DomeinController());
 		personagesApplicatie.start();
 	}
 }
