@@ -9,5 +9,8 @@ public class StartUp {
 		DomeinController dc = new DomeinController();
 		JackpotApplicatie jackpotApplicatie = new JackpotApplicatie(dc);
 		jackpotApplicatie.startJackpotspel();
+
+		// of korter:
+		// new JackpotApplicatie(new DomeinController()).startJackpotspel();
 	}
 }

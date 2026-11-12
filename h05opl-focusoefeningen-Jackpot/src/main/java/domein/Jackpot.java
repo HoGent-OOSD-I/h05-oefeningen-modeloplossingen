@@ -6,7 +6,7 @@ import java.util.List;
 public class Jackpot {
 
 	private List<Wiel> wielen;
-    private final int AANTAL_WIELEN = 3;
+    private static final int AANTAL_WIELEN = 3;
     
 	public Jackpot() {
 		wielen = new ArrayList<>();		
@@ -37,20 +37,25 @@ public class Jackpot {
 		List<Integer> wielwaarden = geefGetallen();
 		wielwaarden.sort(null);     // sorteer de getallen van klein naar groot
 		
+		// we tellen eerst hoeveel gelijke getallen er zijn
 		int vorig = -1;
 		for (int waarde: wielwaarden) {
-			if (vorig == waarde)
+			if (vorig == waarde) // twee opeenvolgende getallen worden telkens vergeleken
 				aantal++;
 			vorig = waarde;
 		}
+		// vb: bij drie gelijke getallen, zal aantal 2 zijn
+		// want het 1e is gelijk aan het 2e, en het 2e is gelijk aan het 3e getal
 		
-		if (aantal == wielen.size()-1) {
+		if (aantal == wielen.size()-1) { // alle getallen zijn gelijk
 			if (wielwaarden.get(0) == 9)
 				return 50;
-			return 10;
+			return 10; // getallen zijn gelijk maar niet 9
 		}
+
+		// else is hier nergens nodig dankzij de returnstatements
 			
-		if (aantal > 0)
+		if (aantal > 0) // twee gelijke getallen
 			return 5;
 		
 		return 0;
