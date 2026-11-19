@@ -91,7 +91,7 @@ public class LottoApplicatie {
         naam = invoerTekst("Geef de naam van de trekking waarvoor je je nummers wil controleren > ");
 	    dc.selecteerTrekking(naam);
 		
-    	TrekkingDTO trekking = dc.geefDetailsGeseleteerdeTrekking();
+    	TrekkingDTO trekking = dc.geefDetailsGeselecteerdeTrekking();
 		
         IO.println(String.format("Trekking gevonden met naam '%s' en datum '%s'",
                 trekking.naam(), trekking.datum()));

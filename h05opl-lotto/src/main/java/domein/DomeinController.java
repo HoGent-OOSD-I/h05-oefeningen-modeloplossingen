@@ -33,7 +33,7 @@ public class DomeinController {
 		geselecteerdeTrekking = trekkingRepo.geefTrekking(naam);
 	}
 	
-	public TrekkingDTO geefDetailsGeseleteerdeTrekking() {
+	public TrekkingDTO geefDetailsGeselecteerdeTrekking() {
         if (geselecteerdeTrekking == null)
             throw new IllegalArgumentException("Geen (geldige) trekking geselecteerd!");
         return zetTrekkingOmNaarDTO(geselecteerdeTrekking);
